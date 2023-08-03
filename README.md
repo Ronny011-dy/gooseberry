@@ -1,27 +1,75 @@
-# React + TypeScript + Vite
+# Gooseberry
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was created so that DY support would have their own fully SPA enabled, multi-context platform to play around with and to debug and troubleshoot issues that are only reproducible in real single page applications.
 
-Currently, two official plugins are available:
+This is the URL to get right to the site:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Gooseberry](https://ronny011-dy.github.io/gooseberry/)
 
-## Expanding the ESLint configuration
+### Initial project build
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+These are the initial steps taken to create this project, and host it on GitHub Pages:
 
-- Configure the top-level `parserOptions` property like this:
+> Make sure you have node first. You can install it [here](https://nodejs.org/en)
+>
+> ```console
+>   ~$ node -v
+> ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+1. Create a new repository on GitHub and got a URL for cloning
+
+2. Create a new `Vite` project using the following commands:
+
+- Install `npm install -g create-vite` globally:
+
+```console
+   ~$ sudo npm install -g create-vite
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Run the app creation:
+
+```console
+   ~$ npm create vite@latest
+```
+
+- Use any name for the project, it doesn't have to match the repo name
+- Choose react/TypeScript/SWC for the ultimate combo 💥
+- Go into the project:
+
+```console
+   ~$ cd projectName
+```
+
+- Install all dependencies that exist in `package.json`:
+
+```console
+   ~$ projectName % npm i
+```
+
+3. Initialize and link the repo, then build the app using the following commands:
+
+```console
+   ~$ projectName % git init
+   ~$ projectName % git add .
+   ~$ projectName % git commit -m "Init"
+   ~$ projectName % git remote add origin https://github.com/userName/repoName.git
+   ~$ projectName % git push -u origin main
+   ~$ projectName % code .
+   ~$ projectName % npm run build
+   ~$ projectName % git add dist -f
+   ~$ projectName % git commit -m "adding dist"
+   ~$ projectName % git subtree push --prefix dist origin gh-pages-static-build
+```
+
+- Before building the app, go to `vite.config.ts` and replace the code with (replace with name of your repo):
+
+```js
+export default defineConfig({
+  base: '/repoName/',
+  plugins: [react()],
+});
+```
+
+4. In GitHub gor to the repo => Settings => Pages => Under Branch pick `gh-pages-static-build` and save
+
+- After a few minutes you site should be up and running, and the URL will be displayed on the repo => Settings => Pages section
