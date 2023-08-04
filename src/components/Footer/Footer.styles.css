@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: right;
+  background-color: var(--gooseberry-primary);
+  color: var(--gooseberry-dark);
+  width: 100vw;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+}
+
+.tagline {
+  margin-top: 7vh;
+  padding-right: 1vw;
+}

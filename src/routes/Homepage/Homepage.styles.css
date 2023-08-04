@@ -1,0 +1,41 @@
+.homepage-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.hero-banner {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 50px;
+  border: solid 5px var(--gooseberry-primary);
+  border-radius: 15px;
+  color: var(--gooseberry-primary);
+  font-size: 1rem;
+  font-style: italic;
+  overflow-wrap: break-word;
+}
+
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secondary {
+  margin: 0;
+}
+
+.categories {
+  background-color: inherit;
+}
+
+button {
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.react {
+  color: var(--gooseberry-secondary);
+}
