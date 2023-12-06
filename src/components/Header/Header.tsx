@@ -1,25 +1,32 @@
 import GooseLogo from '/gooseberry.svg';
-import './Header.styles.css';
+import {
+  Root,
+  StyledLogoLink,
+  StyledLogoWrapper,
+  StyledNavigation,
+} from './Header.styles';
+import { Link } from 'react-router-dom';
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <header className="header">
-      <a
-        className="header-link"
-        href="https://ronny011-dy.github.io/gooseberry/"
-        target="_blank"
-      >
-        <div className="goose-wrapper">
-          <img className="goose" src={GooseLogo} />
-        </div>
-        <div className="breaker" />
-        <div className="title">
-          <h1>Gooseberry</h1>
-        </div>
-      </a>
-    </header>
+    <Root>
+      <StyledLogoLink href="/" target="_self">
+        <StyledLogoWrapper>
+          <img src={GooseLogo} />
+        </StyledLogoWrapper>
+        <h1>Gooseberry</h1>
+      </StyledLogoLink>
+      <StyledNavigation>
+        <Link to={'/gooseberry/category'}>
+          <button>Category</button>
+        </Link>
+        <button>PDP</button>
+        <button>Cart</button>
+        <button>Settings</button>
+      </StyledNavigation>
+    </Root>
   );
 };
 

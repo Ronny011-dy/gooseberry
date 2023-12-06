@@ -1,14 +1,12 @@
-import './Footer.styles.css';
+import { Root } from './Footer.styles';
 
 type FooterProps = {};
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <footer className="footer">
-      <p className="tagline">
-        Sales have blueberry, support have the tastier berry
-      </p>
-    </footer>
+    <Root>
+      <p>There's Blueberry, and then there's the tastier berry</p>
+    </Root>
   );
 };
 

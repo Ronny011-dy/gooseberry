@@ -1,16 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import './App.css';
+import { Root } from './App.styles';
 
 function App() {
   return (
-    <div className="app-wrapper">
+    <Root>
       <Header />
-      <div className="margin" />
       <Outlet />
       <Footer />
-    </div>
+    </Root>
   );
 }
 
