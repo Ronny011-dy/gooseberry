@@ -86,7 +86,7 @@ export default defineConfig({
 
 - After a few minutes you site should be up and running, and the URL will be displayed on the repo => Settings => Pages section
 
-- Vite has blazing fast build times but also Hot Module Replacement, so you can see the project rendered live as you save any code changes. Just use the following to start developing:
+- Vite has blazing fast build times but also Hot Module Replacement, so you can see the dev project rendered live as you save any code changes. Just use the following to start developing:
 
 ```console
    ~$ projectName % npm run dev
@@ -108,8 +108,8 @@ For an easier time building your site in React, it's recommended (but not necess
 - [x] Homepage
 - [x] React Router
 - [x] DY scripts
-- [ ] Category page
-- [ ] Contenxt provider for scripts
+- [ ] Category page - partial
+- [ ] Context provider for scripts
 - [ ] PDP
 - [ ] Cart
 - [ ] Settings
