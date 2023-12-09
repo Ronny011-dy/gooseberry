@@ -101,14 +101,17 @@ export default defineConfig({
 For an easier time building your site in React, it's recommended (but not necessary) to install:
 
 - A CSS framework like [styled-components](https://styled-components.com/) (DY stack) or [Tailwind](https://tailwindcss.com/).
-- A UI library like [MUI](https://mui.com/) (DY stack) or [Next UI](https://nextui.org/). Gooseberry is using styled-components and radixUI.
+- A UI library like [MUI](https://mui.com/) (DY stack) or [radixUI](https://www.radix-ui.com/). Gooseberry is using styled-components and radixUI.
+- For Gooseberry, I'm also using the following packages:
+  - [react-hot-toast](https://react-hot-toast.com/)
+  - [RadixUI Icons](https://www.radix-ui.com/icons)
 
 ### Stuff to add
 
 - [x] Homepage
 - [x] React Router
 - [x] DY scripts
-- [ ] Category page - partial
+- [x] Category page
 - [ ] Context provider for scripts
 - [ ] PDP
 - [ ] Cart

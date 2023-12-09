@@ -1,30 +1,44 @@
-import GooseLogo from '/gooseberry.svg';
+import gooseLogo from '/gooseberry.svg';
+import gooseLogoLight from '/gooseberry_light.svg';
 import {
   Root,
+  StyledButton,
+  StyledLink,
   StyledLogoLink,
   StyledLogoWrapper,
   StyledNavigation,
 } from './Header.styles';
-import { Link } from 'react-router-dom';
+import { useTheme } from 'styled-components';
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
+  const theme = useTheme();
+
   return (
     <Root>
+      {/* for production the href should be https://ronny011-dy.github.io/gooseberry/ */}
       <StyledLogoLink href="/" target="_self">
-        <StyledLogoWrapper>
-          <img src={GooseLogo} />
+        <StyledLogoWrapper variant="outline">
+          <img
+            src={theme.colors.bg === 'whitesmoke' ? gooseLogoLight : gooseLogo}
+          />
         </StyledLogoWrapper>
         <h1>Gooseberry</h1>
       </StyledLogoLink>
       <StyledNavigation>
-        <Link to={'/gooseberry/category'}>
-          <button>Category</button>
-        </Link>
-        <button>PDP</button>
-        <button>Cart</button>
-        <button>Settings</button>
+        <StyledLink to={'/gooseberry/category'}>
+          <StyledButton variant="outline">Category</StyledButton>
+        </StyledLink>
+        <StyledLink to={'/gooseberry/pdp'}>
+          <StyledButton variant="outline">PDP</StyledButton>
+        </StyledLink>
+        <StyledLink to={'/gooseberry/cart'}>
+          <StyledButton variant="outline">Cart</StyledButton>
+        </StyledLink>
+        <StyledLink to={'/gooseberry/settings'}>
+          <StyledButton variant="outline">Settings</StyledButton>
+        </StyledLink>{' '}
       </StyledNavigation>
     </Root>
   );

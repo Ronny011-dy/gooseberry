@@ -1,4 +1,4 @@
-const appendScript = (id: string) => {
+export const appendScript = (id: string) => {
   const scriptPath = (type: string) =>
     `//cdn${
       id[0] === '8' ? '' : '-eu'
@@ -10,5 +10,3 @@ const appendScript = (id: string) => {
   document.head.appendChild(dynamic_script);
   document.head.appendChild(static_script);
 };
-
-export { appendScript };

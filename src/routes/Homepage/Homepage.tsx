@@ -1,36 +1,43 @@
 import GooseLogo from '/gooseberry.svg';
-import { useDY } from '../../hooks/useDY';
 import {
   Root,
+  StyledDetailsWrapper,
   StyledHeroBanner,
   StyledLogo,
   StyledReactLink,
   StyledSubtitle,
-} from './Homepage.styles';
+} from './HomePage.styles';
+import { Carousel } from '../../components/Carousel/Carousel';
+import { setDYContext } from '../../utils/setDYContext';
+import { useEffect } from 'react';
 
-type HomepageProps = {};
+type HomePageProps = {};
 
-const Homepage: React.FC<HomepageProps> = () => {
-  useDY('HOMEPAGE');
+const HomePage: React.FC<HomePageProps> = () => {
+  useEffect(() => {
+    setDYContext('HOMEPAGE');
+  }, []);
   return (
     <Root>
-      <StyledHeroBanner id="hero-banner">
+      <h3>This is the Home page</h3>
+      <StyledHeroBanner>
         <h3>Hero Banner</h3>
-        <p>
+        <p id="hero-banner">
           Also called Caped Gooseberry, or Peruvian Groundcherry, the gooseberry
           is both the tastiest berry known to man, and the best support
           front-end eCommerce sandbox
         </p>
       </StyledHeroBanner>
-      <div id="web-campaigns">
+      <div>
         <h3>Web campaign</h3>
-        <p>Replace me with web campaigns</p>
+        <p id="web-campaign">Replace me with web campaigns</p>
       </div>
-      <div id="xp-api">
+      <div>
         <h3>XP API campaign</h3>
-        <p>XP API client-side campaign goes here</p>
+        {/* <p id="xp-api">XP API client-side campaign goes here</p> */}
+        <Carousel />
       </div>
-      <div id="details-wrapper">
+      <StyledDetailsWrapper id="details-wrapper">
         <StyledLogo
           href="https://ronny011-dy.github.io/gooseberry/"
           target="_blank"
@@ -43,9 +50,9 @@ const Homepage: React.FC<HomepageProps> = () => {
             React
           </StyledReactLink>
         </StyledSubtitle>
-      </div>
+      </StyledDetailsWrapper>
     </Root>
   );
 };
 
-export { Homepage };
+export { HomePage };

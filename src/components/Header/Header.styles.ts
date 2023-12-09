@@ -1,10 +1,12 @@
+import { Button } from '@radix-ui/themes';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Root = styled.header`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  background-color: ${(props) => props.theme.constantColors.primary};
+  background-color: ${(props) => props.theme.colors.primary};
   width: 100%;
   height: 7vw;
   max-height: 100px;
@@ -12,32 +14,10 @@ export const Root = styled.header`
   top: 0;
   left: 0;
   z-index: 1;
-  border-bottom: solid 1px ${(props) => props.theme.constantColors.black};
-
-  img {
-    height: 3vw;
-    max-height: 43.2px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  button {
-    background-color: ${(props) => props.theme.constantColors.white};
-    border: none;
-    border-radius: ${(props) => props.theme.borderRadius};
-    &:hover {
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    }
-    &:active {
-      margin-top: 4px;
-      box-shadow: none;
-    }
-  }
+  border-bottom: 1px solid ${(props) => props.theme.colors.fga};
 `;
 
-export const StyledLogoWrapper = styled.button`
+export const StyledLogoWrapper = styled(Button)`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -46,6 +26,10 @@ export const StyledLogoWrapper = styled.button`
   width: 4vw;
   max-height: 57.6px;
   max-width: 57.6px;
+  img {
+    height: 3vw;
+    max-height: 43.2px;
+  }
 `;
 
 export const StyledLogoLink = styled.a`
@@ -56,6 +40,7 @@ export const StyledLogoLink = styled.a`
   text-decoration: none;
   gap: 30px;
   align-items: center;
+  width: fit-content;
 `;
 
 export const StyledNavigation = styled.div`
@@ -67,12 +52,15 @@ export const StyledNavigation = styled.div`
     height: fit-content;
   }
   button {
-    color: ${(props) => props.theme.colors.fg};
-    background-color: ${(props) => props.theme.colors.bg};
     font-weight: bold;
-    height: fit-content;
     width: 11ch;
-    cursor: pointer;
-    padding: 10px;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  width: fit-content;
+`;
+
+export const StyledButton = styled(Button)`
+  color: ${(props) => props.theme.constantColors.black};
 `;

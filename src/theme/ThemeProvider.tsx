@@ -29,7 +29,6 @@ export const ThemeProviderWithModes: React.FC<ThemeProviderWithModesProps> = ({
   const themeWithExtras = {
     colors: theme.colors,
     constantColors: {
-      primary: 'rgb(252, 185, 0)',
       secondary: 'rgb(0, 168, 210)',
       white: 'whitesmoke',
       black: 'rgb(30, 30, 30)',
