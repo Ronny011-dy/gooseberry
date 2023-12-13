@@ -12,9 +12,9 @@ The idea of this project is to have a sandbox that is more flexible than our Tum
 
 This project can also help with learning some Javascript, React and git.
 
-Just like the DY front-end stack, this project is using [Vite](https://vitejs.dev/) instead of the simpler, more traditional `create-react-app`.
+This project is using [Vite](https://vitejs.dev/) instead of the simpler, more traditional `create-react-app`.
 
-- If you want to create your own SPA site, check [Initial project build](###initial-project-build).
+- If you want to create your own SPA sandbox, check 'Initial project build' below.
 
 ---
 
@@ -100,12 +100,13 @@ export default defineConfig({
 
 For an easier time building your site in React, it's recommended (but not necessary) to install:
 
-- A CSS framework like [styled-components](https://styled-components.com/) (DY stack) or [Tailwind](https://tailwindcss.com/).
-- A UI library like [MUI](https://mui.com/) (DY stack) or [radixUI](https://www.radix-ui.com/). Gooseberry is using styled-components and radixUI.
-- For Gooseberry, I'm also using the following packages:
+- A CSS framework like styled-components or [Tailwind](https://tailwindcss.com/).
+- A UI library like [MUI](https://mui.com/) or radixUI.
+- Gooseberry is using the following packages and radixUI :
+  - [styled-components](https://styled-components.com/)
+  - [radixUI](https://www.radix-ui.com/)
   - [react-hot-toast](https://react-hot-toast.com/)
   - [RadixUI Icons](https://www.radix-ui.com/icons)
-  - [grommet-icons](https://icons.grommet.io/?)
 
 ### Stuff to add
 
@@ -114,7 +115,7 @@ For an easier time building your site in React, it's recommended (but not necess
 - [x] DY scripts
 - [x] Category page
 - [ ] Context provider for scripts
-- [ ] PDP
-- [ ] Cart
+- [x] PDP
+- [x] Cart
 - [ ] Settings
 - [ ] XP API client-side
