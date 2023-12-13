@@ -105,6 +105,7 @@ For an easier time building your site in React, it's recommended (but not necess
 - For Gooseberry, I'm also using the following packages:
   - [react-hot-toast](https://react-hot-toast.com/)
   - [RadixUI Icons](https://www.radix-ui.com/icons)
+  - [grommet-icons](https://icons.grommet.io/?)
 
 ### Stuff to add
 

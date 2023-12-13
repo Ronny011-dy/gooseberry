@@ -1,24 +1,42 @@
-import { Avatar, Box, Text, Card } from '@radix-ui/themes';
-import { Root, StyledCard, StyledFlexBox } from './SlotCard.styles';
-type SlotCardProps = {};
+import { Box, Text } from '@radix-ui/themes';
+import {
+  Root,
+  StyledCard,
+  StyledFlexBox,
+  StyledImage,
+  StyledName,
+} from './SlotCard.styles';
+export type SlotCardProps = {
+  name: string;
+  image_url: string;
+  price: string;
+};
 
-export const SlotCard: React.FC<SlotCardProps> = () => {
+export const SlotCard: React.FC<SlotCardProps> = ({
+  name,
+  image_url,
+  price,
+}) => {
   return (
     <Root>
       <StyledCard variant="classic">
         <StyledFlexBox>
-          <Text as="div" size="2" weight="bold">
-            Adam Jensen
-          </Text>
-          <Avatar
+          <StyledName as="div" size="2" weight="bold">
+            {name}
+          </StyledName>
+          <StyledImage
             size="8"
-            src="https://www.giantbomb.com/a/uploads/original/10/106514/1525481-300px_jensen_augs_noshades.jpg"
-            radius="small"
-            fallback="T"
+            src={image_url}
+            radius="none"
+            fallback="NO IMAGE"
           />
           <Box>
             <Text as="div" size="2">
-              Security
+              {Number(price).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+              })}
             </Text>
           </Box>
         </StyledFlexBox>

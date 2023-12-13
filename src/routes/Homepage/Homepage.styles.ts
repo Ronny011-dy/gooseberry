@@ -8,9 +8,11 @@ const centeredDiv = css`
 
 export const Root = styled.div`
   ${centeredDiv};
-  justify-content: space-around;
-  min-height: 86vh;
+  margin-top: 10vh;
+  min-height: 90vh;
   height: fit-content;
+  gap: 25px;
+  padding-bottom: 10vh;
   color: ${(props) => props.theme.colors.fg};
   div {
     text-align: center;
@@ -60,6 +62,7 @@ export const StyledLogo = styled.a`
 `;
 
 export const StyledDetailsWrapper = styled.div`
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;

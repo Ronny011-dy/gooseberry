@@ -7,7 +7,7 @@ export const Root = styled.div`
   min-height: 86vh;
   height: fit-content;
   margin-top: 10vh;
+  text-align: center;
   gap: 25px;
   color: ${(props) => props.theme.colors.fg};
-  text-align: center;
 `;

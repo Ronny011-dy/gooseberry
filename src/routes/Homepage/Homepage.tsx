@@ -14,12 +14,13 @@ import { useEffect } from 'react';
 type HomePageProps = {};
 
 const HomePage: React.FC<HomePageProps> = () => {
+  const type = 'HOMEPAGE';
   useEffect(() => {
-    setDYContext('HOMEPAGE');
-  }, []);
+    setDYContext(type);
+  });
   return (
     <Root>
-      <h3>This is the Home page</h3>
+      <h3>Home page</h3>
       <StyledHeroBanner>
         <h3>Hero Banner</h3>
         <p id="hero-banner">

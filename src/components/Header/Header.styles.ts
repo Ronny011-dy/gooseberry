@@ -8,9 +8,8 @@ export const Root = styled.header`
   align-items: center;
   background-color: ${(props) => props.theme.colors.primary};
   width: 100%;
-  height: 7vw;
-  max-height: 100px;
-  position: absolute;
+  height: 10vh;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -22,13 +21,11 @@ export const StyledLogoWrapper = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4vw;
-  width: 4vw;
-  max-height: 57.6px;
-  max-width: 57.6px;
+  height: 4vh;
+  width: 4vh;
   img {
-    height: 3vw;
-    max-height: 43.2px;
+    height: 3vh;
+    width: 3vh;
   }
 `;
 
