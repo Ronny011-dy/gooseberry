@@ -1,44 +1,27 @@
 import { useEffect } from 'react';
-import { ContextChanger } from '../../components/ContextChanger/ContextChanger';
+import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
 import { setDYContext } from '../../utils/setDYContext';
 import { Root } from './ProductPage.styles';
-import {
-  SlotCard,
-  SlotCardProps,
-} from '../../components/Carousel/components/SlotCard/SlotCard';
+import { parseContext } from '../../utils/funcs.util';
+import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
 
 type ProductPageProps = {};
 
 export const ProductPage: React.FC<ProductPageProps> = () => {
   const type = 'PRODUCT';
-  const data = ['3853'];
+  const { productContext } = useDyDefaultsContext();
   useEffect(() => {
-    setDYContext(type, data);
+    setDYContext(type, parseContext(productContext));
   });
-
-  let productProperties = {} as SlotCardProps;
-
-  try {
-    //should not show warnings in production
-    ({
-      name: productProperties.name,
-      image_url: productProperties.image_url,
-      price: productProperties.price,
-    } = (window as any)?.DY?.feedProperties);
-  } catch (error) {
-    console.warn('Properties were not found:', error);
-    productProperties.name = 'No product';
-    productProperties.price = '0';
-  }
 
   return (
     <Root>
-      <h3>Product page</h3>
-      <SlotCard {...(productProperties as SlotCardProps)} />
-      <ContextChanger type="PRODUCT" />
+      <RecContextChanger type="PRODUCT" />
       <div>
-        <h3>Product campaign</h3>
-        <p id="product-campaign">Insert campaign here</p>
+        <h4>Product campaign</h4>
+        <div id="product-campaign">
+          <p>Insert campaign here</p>
+        </div>
       </div>
     </Root>
   );

@@ -1,4 +1,8 @@
 export const appendScript = (id: string) => {
+  const prevDy = document.getElementById('dy');
+  const prevSt = document.getElementById('st');
+  prevDy && prevDy.remove();
+  prevSt && prevSt.remove();
   const scriptPath = (type: string) =>
     `//cdn${
       id[0] === '8' ? '' : '-eu'
@@ -6,7 +10,15 @@ export const appendScript = (id: string) => {
   const dynamic_script = document.createElement('script');
   const static_script = document.createElement('script');
   dynamic_script.src = scriptPath('dynamic');
+  dynamic_script.id = 'dy';
   static_script.src = scriptPath('static');
+  static_script.id = 'st';
   document.head.appendChild(dynamic_script);
   document.head.appendChild(static_script);
 };
+
+export const parseContext = (data: string) =>
+  data
+    .replace(/["']/g, '')
+    .split(',')
+    .map((element) => element.trim());

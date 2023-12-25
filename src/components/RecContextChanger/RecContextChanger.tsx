@@ -3,11 +3,11 @@ import { Button, TextField } from '@radix-ui/themes';
 import { ChangeEvent, useRef, useState } from 'react';
 import { PageContext, setDYContext } from '../../utils/setDYContext';
 import toast from 'react-hot-toast';
-import { Root } from './ContextChanger.styles';
+import { Root } from './RecContextChanger.styles';
 
 type ContextChangerProps = { type: PageContext };
 
-export const ContextChanger: React.FC<ContextChangerProps> = ({ type }) => {
+export const RecContextChanger: React.FC<ContextChangerProps> = ({ type }) => {
   const [contextData, setContextData] = useState('');
   const textInputRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

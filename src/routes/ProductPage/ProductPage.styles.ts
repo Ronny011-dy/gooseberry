@@ -8,6 +8,7 @@ export const Root = styled.div`
   height: fit-content;
   margin-top: 10vh;
   text-align: center;
+  justify-content: center;
   gap: 25px;
   color: ${(props) => props.theme.colors.fg};
 `;

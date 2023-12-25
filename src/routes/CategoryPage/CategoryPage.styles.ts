@@ -4,6 +4,7 @@ export const Root = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 86vh;
   height: fit-content;
   margin-top: 10vh;

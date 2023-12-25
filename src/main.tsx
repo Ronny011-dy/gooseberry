@@ -11,6 +11,7 @@ import { ThemeProviderWithModes } from './theme/ThemeProvider.tsx';
 import { ProductPage } from './routes/ProductPage/ProductPage.tsx';
 import { CartPage } from './routes/CartPage/CartPage.tsx';
 import { SettingsPage } from './routes/SettingsPage/SettingsPage.tsx';
+import { DyDefaultsProvider } from './components/DyDefaultsProvider/DyDefaultsProvider.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProviderWithModes>
-      <RouterProvider router={router} />
+      <DyDefaultsProvider>
+        <RouterProvider router={router} />
+      </DyDefaultsProvider>
     </ThemeProviderWithModes>
   </React.StrictMode>
 );

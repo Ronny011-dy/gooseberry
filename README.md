@@ -4,17 +4,28 @@
 
 This project was created so that DY support would have their own fully SPA, multi-context platform to play around with, debug, and troubleshoot issues that are only reproducible in real single page applications.
 
-This is the URL to get right to the site:
-
-[Gooseberry](https://ronny011-dy.github.io/gooseberry/)
+Site URL - [Gooseberry](https://ronny011-dy.github.io/gooseberry/)
 
 The idea of this project is to have a sandbox that is more flexible than our Tumblr blogs, and can be used with XP client-side API. SSAPI will need some backend code, not impossible but it increases the complexity of the app.
 
 This project can also help with learning some Javascript, React and git.
+If you want to create your own SPA sandbox, check [Initial project build](#initial-project-build).
 
-This project is using [Vite](https://vitejs.dev/) instead of the simpler, more traditional `create-react-app`.
+### Features
 
-- If you want to create your own SPA sandbox, check 'Initial project build' below.
+- Seperate pages for each DY page context.
+- Web campaign insertion slots for easy script troubleshooting.
+- Fully SPA transitions without page reload.
+- XP Client Side API.
+- Context changers for quick and dirty recommendationsContext changes.
+- Default global value settings for setting the following defaults:
+  - Section id
+  - API key
+  - Category context
+  - PDP context
+- Bug reporting form.
+- Fully operating cart page with A2C/Remove/Purcahse events. Current cart state is sent in each event for troubleshooting reconnect use cases.
+- Thorough documentation :P
 
 ---
 
@@ -102,11 +113,14 @@ For an easier time building your site in React, it's recommended (but not necess
 
 - A CSS framework like styled-components or [Tailwind](https://tailwindcss.com/).
 - A UI library like [MUI](https://mui.com/) or radixUI.
-- Gooseberry is using the following packages and radixUI :
+- Gooseberry is using the following packages:
+  - [Vite](https://vitejs.dev/)
   - [styled-components](https://styled-components.com/)
   - [radixUI](https://www.radix-ui.com/)
+  - [radixUI Icons](https://www.radix-ui.com/icons)
   - [react-hot-toast](https://react-hot-toast.com/)
-  - [RadixUI Icons](https://www.radix-ui.com/icons)
+  - [ky](https://github.com/sindresorhus/ky)
+  - [react query](https://tanstack.com/query/latest)
 
 ### Stuff to add
 
@@ -114,8 +128,8 @@ For an easier time building your site in React, it's recommended (but not necess
 - [x] React Router
 - [x] DY scripts
 - [x] Category page
-- [ ] Context provider for scripts
+- [x] Context provider for scripts
 - [x] PDP
 - [x] Cart
-- [ ] Settings
+- [x] Settings
 - [ ] XP API client-side

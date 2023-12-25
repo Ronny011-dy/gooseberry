@@ -11,3 +11,10 @@ export const Root = styled.div`
   color: ${(props) => props.theme.colors.fg};
   text-align: center;
 `;
+
+export const StyledChangersWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: end;
+`;

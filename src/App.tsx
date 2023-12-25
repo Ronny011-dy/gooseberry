@@ -6,13 +6,16 @@ import { Theme as RadixUITheme } from '@radix-ui/themes';
 import { useTheme } from 'styled-components';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
-import { appendScript } from './utils/appendScript';
-import { sectionID } from './common/variables';
+import { appendScript } from './utils/funcs.util';
+import { useDyDefaultsContext } from './hooks/useDyDefaultsContext';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
+  const { scriptId } = useDyDefaultsContext();
   useEffect(() => {
-    appendScript(sectionID); // we will get two sets of scripts in development
+    appendScript(scriptId);
   }, []);
+  const queryClient = new QueryClient();
   const theme = useTheme();
   return (
     <RadixUITheme
@@ -22,11 +25,13 @@ function App() {
       accentColor="yellow"
     >
       <Toaster position="top-right" reverseOrder={false} />
-      <Root>
-        <Header />
-        <Outlet />
-        <Footer />
-      </Root>
+      <QueryClientProvider client={queryClient}>
+        <Root>
+          <Header />
+          <Outlet />
+          <Footer />
+        </Root>
+      </QueryClientProvider>
     </RadixUITheme>
   );
 }

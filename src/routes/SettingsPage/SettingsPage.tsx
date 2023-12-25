@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import { Root } from './SettingsPage.styles';
+import { Root, StyledChangersWrapper } from './SettingsPage.styles';
 import { setDYContext } from '../../utils/setDYContext';
+import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
+import { DyDefaultsChanger } from './components/DyDefaultsChanger/DyDefaultsChanger';
 
 type SettingsPageProps = {};
 
@@ -9,11 +11,40 @@ export const SettingsPage: React.FC<SettingsPageProps> = () => {
   useEffect(() => {
     setDYContext(type);
   });
+  const {
+    scriptId,
+    setScriptId,
+    categoryContext,
+    setCategoryContext,
+    productContext,
+    setProductContext,
+  } = useDyDefaultsContext();
+
   return (
     <Root>
-      Just a settings page. Move along{' '}
-      {/* {(window as any).DY.recommendationContext.type}
-      {(window as any).DY.recommendationContext.data} */}
+      <h4>Defaults</h4>
+      <StyledChangersWrapper>
+        <DyDefaultsChanger
+          toChange="section_id"
+          defaultValue={scriptId}
+          setDefaultValue={setScriptId}
+        />
+        <DyDefaultsChanger
+          toChange="category_data"
+          defaultValue={categoryContext}
+          setDefaultValue={setCategoryContext}
+        />
+        {/* <p>XP API Client Side Key</p> */}
+        <DyDefaultsChanger
+          toChange="product_data"
+          defaultValue={productContext}
+          setDefaultValue={setProductContext}
+        />
+      </StyledChangersWrapper>
+      <h4>OTHER campaign</h4>
+      <div id="other-campaign">
+        <p>Insert campaign here</p>
+      </div>
     </Root>
   );
 };

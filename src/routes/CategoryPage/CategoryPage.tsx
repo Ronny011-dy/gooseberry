@@ -1,27 +1,25 @@
 import { Root } from './CategoryPage.styles';
 import { useEffect } from 'react';
 import { setDYContext } from '../../utils/setDYContext';
-import { ContextChanger } from '../../components/ContextChanger/ContextChanger';
+import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
+import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
+import { parseContext } from '../../utils/funcs.util';
 
-type CategoryPageProps = {};
-
-const CategoryPage: React.FC<CategoryPageProps> = () => {
+export const CategoryPage: React.FC = () => {
   const type = 'CATEGORY';
-  const data = ['Gin'];
+
+  const { categoryContext } = useDyDefaultsContext();
   useEffect(() => {
-    setDYContext(type, data);
+    setDYContext(type, parseContext(categoryContext));
   });
 
   return (
     <Root>
-      <h3>Category page</h3>
-      <ContextChanger type="CATEGORY" />
+      <RecContextChanger type="CATEGORY" />
       <div>
-        <h3>Category campaign</h3>
+        <h4>Category campaign</h4>
         <p id="category-campaign">Insert campaign here</p>
       </div>
     </Root>
   );
 };
-
-export { CategoryPage };
