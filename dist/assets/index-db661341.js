@@ -124,7 +124,7 @@ body { background-color: var(--color-page-background); }
   width: fit-content;
 `,Ui=V(rn)`
   color: ${e=>e.theme.constantColors.black};
-`,gx=()=>{const e=h0();return P.jsxs(fx,{children:[P.jsxs(px,{href:"/",target:"_self",children:[P.jsx(hx,{variant:"outline",children:P.jsx("img",{src:e.colors.bg==="whitesmoke"?U1:Dm})}),P.jsx("h1",{children:"Gooseberry"})]}),P.jsxs(mx,{children:[P.jsx(zi,{to:"/gooseberry/category",children:P.jsx(Ui,{variant:"outline",children:"Category"})}),P.jsx(zi,{to:"/gooseberry/pdp",children:P.jsx(Ui,{variant:"outline",children:"PDP"})}),P.jsx(zi,{to:"/gooseberry/cart",children:P.jsx(Ui,{variant:"outline",children:"Cart"})}),P.jsx(zi,{to:"/gooseberry/settings",children:P.jsx(Ui,{variant:"outline",children:"Settings"})})," "]})]})},yx=V(rn)``,g0=V(Om)``,vx=V.footer`
+`,gx=()=>{const e=h0();return P.jsxs(fx,{children:[P.jsxs(px,{href:"/gooseberry",target:"_self",children:[P.jsx(hx,{variant:"outline",children:P.jsx("img",{src:e.colors.bg==="whitesmoke"?U1:Dm})}),P.jsx("h1",{children:"Gooseberry"})]}),P.jsxs(mx,{children:[P.jsx(zi,{to:"/gooseberry/category",children:P.jsx(Ui,{variant:"outline",children:"Category"})}),P.jsx(zi,{to:"/gooseberry/pdp",children:P.jsx(Ui,{variant:"outline",children:"PDP"})}),P.jsx(zi,{to:"/gooseberry/cart",children:P.jsx(Ui,{variant:"outline",children:"Cart"})}),P.jsx(zi,{to:"/gooseberry/settings",children:P.jsx(Ui,{variant:"outline",children:"Settings"})})," "]})]})},yx=V(rn)``,g0=V(Om)``,vx=V.footer`
   position: absolute;
   bottom: 0;
   left: 0;
