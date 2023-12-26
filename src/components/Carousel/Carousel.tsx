@@ -6,7 +6,7 @@ import type { Slot } from '../../api/api.types';
 
 type CarouselProps = { productsArr: Slot[] };
 
-export const Carousel: React.FC<CarouselProps> = ({ productsArr }) => {
+export const Carousel: React.FC<CarouselProps> = () => {
   // console.log(productsArr);
   return (
     <Root>

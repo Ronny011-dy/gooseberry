@@ -6,9 +6,9 @@ import { Theme as RadixUITheme } from '@radix-ui/themes';
 import { useTheme } from 'styled-components';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
-import { appendScript } from './utils/funcs.util';
 import { useDyDefaultsContext } from './hooks/useDyDefaultsContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { appendScript } from './utils/functions';
 
 function App() {
   const { scriptId } = useDyDefaultsContext();

@@ -1,9 +1,9 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import { useLocalStorage } from '../../../../hooks/useLocalStorage';
 import { Root } from './DyDefaultsChanger.styles';
-import { appendScript } from '../../../../utils/funcs.util';
 import { Button, TextFieldInput } from '@radix-ui/themes';
 import type { LocalStorageKey } from '../../../../components/DyDefaultsProvider/DyDefaultsProvider';
+import { appendScript } from '../../../../utils/functions';
 
 type DyDefaultsChanger = {
   toChange: LocalStorageKey;

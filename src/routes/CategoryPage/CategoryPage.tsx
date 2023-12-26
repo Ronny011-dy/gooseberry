@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { setDYContext } from '../../utils/setDYContext';
 import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
 import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
-import { parseContext } from '../../utils/funcs.util';
+import { parseContext } from '../../utils/functions';
 
 export const CategoryPage: React.FC = () => {
   const type = 'CATEGORY';
