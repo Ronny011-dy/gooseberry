@@ -1,4 +1,12 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+.dy.campaign{
+  max-width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  color: ${(props) => props.theme.colors.fg} !important;
+}`;
 
 export const Root = styled.div`
   display: flex;

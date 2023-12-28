@@ -5,7 +5,6 @@
   --gooseberry-dark: rgb(30, 30, 30);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: var(--gooseberry-light);
   background-color: var(--gooseberry-dark);
   font-synthesis: none;
   text-rendering: optimizeLegibility;

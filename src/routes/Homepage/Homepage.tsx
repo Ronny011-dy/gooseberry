@@ -2,10 +2,9 @@ import GooseLogo from '/gooseberry.svg';
 import {
   Root,
   StyledDetailsWrapper,
-  StyledHeroBanner,
+  StyledHeroParagraph,
   StyledLogo,
   StyledReactLink,
-  StyledSubtitle,
 } from './HomePage.styles';
 import { Carousel } from '../../components/Carousel/Carousel';
 import { setDYContext } from '../../utils/setDYContext';
@@ -29,23 +28,23 @@ const HomePage: React.FC = () => {
     productsArr = data.choices[0].variations[0].payload.data.slots;
     return (
       <Root>
-        <StyledHeroBanner>
+        <div>
           <h4>Hero Banner</h4>
-          <div id="hero-banner">
-            <p>
+          <div className="dy campaign homepage banner">
+            <StyledHeroParagraph>
               Also called Caped Gooseberry, or Peruvian Groundcherry, the
               gooseberry is both the tastiest berry known to man, and the best
               support front-end eCommerce sandbox
-            </p>
-          </div>
-        </StyledHeroBanner>
-        <div>
-          <h4>Web campaign</h4>
-          <div id="web-campaign">
-            <p>Insert campaign here</p>
+            </StyledHeroParagraph>
           </div>
         </div>
         <div>
+          <h4>Web campaign</h4>
+          <div className="dy campaign homepage recs">
+            <p>Insert campaign here</p>
+          </div>
+        </div>
+        <div className="dy campaign api">
           <h4>XP API campaign</h4>
           <Carousel {...productsArr} />
         </div>
@@ -56,12 +55,12 @@ const HomePage: React.FC = () => {
           >
             <img src={GooseLogo} alt="Vite logo" />
           </StyledLogo>
-          <StyledSubtitle>
+          <p>
             Built with{' '}
             <StyledReactLink href="https://react.dev/" target="_blank">
               React
             </StyledReactLink>
-          </StyledSubtitle>
+          </p>
         </StyledDetailsWrapper>
       </Root>
     );

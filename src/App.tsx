@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { Root } from './App.styles';
+import { GlobalStyle, Root } from './App.styles';
 import { Theme as RadixUITheme } from '@radix-ui/themes';
 import { useTheme } from 'styled-components';
 import { Toaster } from 'react-hot-toast';
@@ -26,6 +26,7 @@ function App() {
     >
       <Toaster position="top-right" reverseOrder={false} />
       <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
         <Root>
           <Header />
           <Outlet />

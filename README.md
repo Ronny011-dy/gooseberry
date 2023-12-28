@@ -81,7 +81,7 @@ These are the initial steps taken to create this project, and host it on GitHub 
    ~$ projectName % npm run build
    ~$ projectName % git add dist -f
    ~$ projectName % git commit -m "adding dist"
-   ~$ projectName % git subtree push --prefix dist origin gh-pages-static-build
+   ~$ projectName % git subtree push --prefix dist origin gh-pages
 ```
 
 - Before building the app for production, go to `vite.config.ts` and replace the code with (replace with name of your repo):
