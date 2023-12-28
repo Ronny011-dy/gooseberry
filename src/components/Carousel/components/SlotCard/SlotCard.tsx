@@ -7,10 +7,9 @@ import {
   StyledName,
 } from './SlotCard.styles';
 export type SlotCardProps = {
-  //these should change to mandatory when the carousel is finished
-  name?: string;
-  image_url?: string;
-  price?: string;
+  name: string;
+  image_url: string;
+  price: string;
 };
 
 export const SlotCard: React.FC<SlotCardProps> = ({

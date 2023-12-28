@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   margin-left: auto;
   margin-right: auto;
   color: ${(props) => props.theme.colors.fg} !important;
+  z-index: 10;
 }`;
 
 export const Root = styled.div`

@@ -20,7 +20,7 @@ export const StyledCard = styled(Card)`
 
 export const StyledName = styled(Text)`
   font-weight: bold;
-  width: 14ch;
+  width: 18ch;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

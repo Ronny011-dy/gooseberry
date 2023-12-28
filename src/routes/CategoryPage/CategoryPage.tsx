@@ -16,7 +16,7 @@ export const CategoryPage: React.FC = () => {
   return (
     <Root>
       <RecContextChanger type="CATEGORY" />
-      <div className="dy campaign category">
+      <div className="dy campaign category" id="category-campaign">
         <h4>Category campaign</h4>
         <p>Insert campaign here</p>
       </div>

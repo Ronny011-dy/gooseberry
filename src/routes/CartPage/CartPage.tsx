@@ -48,7 +48,7 @@ export const CartPage: React.FC<CartPageProps> = () => {
   return (
     <Root>
       <h4>Cart campaign</h4>
-      <div className="dy campaign cart">
+      <div className="dy campaign cart" id="cart-campaign">
         <p>Insert campaign here</p>
       </div>
       <StyledAddToCart>

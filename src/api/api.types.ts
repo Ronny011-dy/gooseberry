@@ -1,5 +1,11 @@
+type ProductData = {
+  name: string;
+  image_url: string;
+  price: string;
+};
+
 export type Slot = {
-  productData: Object;
+  productData: ProductData;
   sku: string;
   slotId: string;
 };
