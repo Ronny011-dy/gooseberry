@@ -37,10 +37,10 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/gooseberry/category" element={<CategoryPage />} />
-              <Route path="/gooseberry/pdp" element={<ProductPage />} />
-              <Route path="/gooseberry/cart" element={<CartPage />} />
-              <Route path="/gooseberry/settings" element={<SettingsPage />} />
+              <Route path="/category" element={<CategoryPage />} />
+              <Route path="/pdp" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
             </Routes>
             <Footer />
           </Root>

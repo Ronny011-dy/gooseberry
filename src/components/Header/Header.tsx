@@ -19,7 +19,11 @@ const Header: React.FC<HeaderProps> = () => {
     <Root>
       {/* for production the href should be https://ronny011-dy.github.io/gooseberry/ */}
       {/* for dev its just "/" */}
-      <StyledLogoLink href="/" target="_self">
+      <StyledLogoLink
+        href="https://ronny011-dy.github.io/gooseberry/"
+        // href="/"
+        target="_self"
+      >
         <StyledLogoWrapper variant="outline">
           <img
             src={theme.colors.bg === 'whitesmoke' ? gooseLogoLight : gooseLogo}
@@ -28,16 +32,16 @@ const Header: React.FC<HeaderProps> = () => {
         <h1>Gooseberry</h1>
       </StyledLogoLink>
       <StyledNavigation>
-        <StyledLink to={'/gooseberry/category'}>
+        <StyledLink to={'/category'}>
           <StyledButton variant="outline">Category</StyledButton>
         </StyledLink>
-        <StyledLink to={'/gooseberry/pdp'}>
+        <StyledLink to={'/pdp'}>
           <StyledButton variant="outline">PDP</StyledButton>
         </StyledLink>
-        <StyledLink to={'/gooseberry/cart'}>
+        <StyledLink to={'/cart'}>
           <StyledButton variant="outline">Cart</StyledButton>
         </StyledLink>
-        <StyledLink to={'/gooseberry/settings'}>
+        <StyledLink to={'/settings'}>
           <StyledButton variant="outline">Settings</StyledButton>
         </StyledLink>{' '}
       </StyledNavigation>

@@ -117,7 +117,7 @@ Then add the following script in `package.json`:
    }
 ```
 
-Lastly, use `npm run deploy`.
+Lastly, use `npm run deploy` after building.
 
 - To add support for creating more pages (for a multi-context site), install [react-router-dom](https://reactrouter.com/en/main):
 
