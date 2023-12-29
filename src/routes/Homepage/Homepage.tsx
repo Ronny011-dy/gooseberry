@@ -13,13 +13,15 @@ const HomePage: React.FC = () => {
     <Root>
       <h4>Hero Banner</h4>
       <div className="dy campaign homepage banner" id="homepage-banner">
-        Also called Caped Gooseberry, or Peruvian Groundcherry, the gooseberry
-        is both the tastiest berry known to man, and the best support front-end
-        eCommerce sandbox
+        <p>
+          Also called Caped Gooseberry, or Peruvian Groundcherry, the gooseberry
+          is both the tastiest berry known to man, and the best support
+          front-end eCommerce sandbox
+        </p>
       </div>
       <h4>Web campaign</h4>
       <div className="dy campaign homepage recs" id="homepage-recs">
-        Insert campaign here
+        <p>Insert campaign here</p>
       </div>
       <h4>XP API campaign</h4>
       <div className="dy campaign api" id="homepage-api">

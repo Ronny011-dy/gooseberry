@@ -44,7 +44,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = () => {
       </StyledChangersWrapper>
       <h4>OTHER campaign</h4>
       <div className="dy campaign other" id="other-campaign">
-        Insert campaign here
+        <p>Insert campaign here</p>
       </div>
       <GooseDetails />
     </Root>

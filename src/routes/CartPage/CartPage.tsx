@@ -49,7 +49,7 @@ export const CartPage: React.FC<CartPageProps> = () => {
     <Root>
       <h4>Cart campaign</h4>
       <div className="dy campaign cart" id="cart-campaign">
-        Insert campaign here
+        <p>Insert campaign here</p>
       </div>
       <StyledAddToCart>
         <TextField.Input
