@@ -17,9 +17,9 @@ export const ProductPage: React.FC<ProductPageProps> = () => {
   return (
     <Root>
       <RecContextChanger type="PRODUCT" />
+      <h4>Product campaign</h4>
       <div className="dy campaign product" id="product-campaign">
-        <h4>Product campaign</h4>
-        <p>Insert campaign here</p>
+        Insert campaign here
       </div>
     </Root>
   );

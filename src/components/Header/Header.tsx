@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = () => {
           <StyledButton variant="outline">Category</StyledButton>
         </StyledLink>
         <StyledLink to={'/product'}>
-          <StyledButton variant="outline">PDP</StyledButton>
+          <StyledButton variant="outline">Product</StyledButton>
         </StyledLink>
         <StyledLink to={'/cart'}>
           <StyledButton variant="outline">Cart</StyledButton>

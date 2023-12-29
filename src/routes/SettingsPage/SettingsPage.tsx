@@ -42,9 +42,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = () => {
           setDefaultValue={setProductContext}
         />
       </StyledChangersWrapper>
+      <h4>OTHER campaign</h4>
       <div className="dy campaign other" id="other-campaign">
-        <h4>OTHER campaign</h4>
-        <p>Insert campaign here</p>
+        Insert campaign here
       </div>
       <GooseDetails />
     </Root>
