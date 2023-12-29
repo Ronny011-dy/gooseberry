@@ -2,6 +2,7 @@ type ProductData = {
   name: string;
   image_url: string;
   price: string;
+  url: string;
 };
 
 export type Slot = {

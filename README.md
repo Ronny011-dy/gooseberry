@@ -93,7 +93,7 @@ export default defineConfig({
 });
 ```
 
-4. In GitHub go to the repo -> Settings -> Pages -> Under `Branch` pick `gh-pages-static-build` and save.
+4. In GitHub go to the repo -> Settings -> Pages -> Under `Branch` pick `gh-pages` and save.
 
 - After a few minutes you site should be up and running, and the URL will be displayed on the repo => Settings => Pages section
 
@@ -103,7 +103,23 @@ export default defineConfig({
    ~$ projectName % npm run dev
 ```
 
-5. To add support for creating more pages (for a multi-context site), install [react-router-dom](https://reactrouter.com/en/main):
+- For deploying your changes easily, first install [gh-pages](https://www.npmjs.com/package/gh-pages):
+
+```console
+   ~$ projectName % npm install gh-pages --save-dev
+```
+
+Then add the following script in `package.json`:
+
+```json
+   "scripts": {
+      "deploy": "gh-pages -d dist"
+   }
+```
+
+Lastly, use `npm run deploy`.
+
+- To add support for creating more pages (for a multi-context site), install [react-router-dom](https://reactrouter.com/en/main):
 
 ```console
    ~$ projectName % npm install react-router-dom
@@ -132,4 +148,4 @@ For an easier time building your site in React, it's recommended (but not necess
 - [x] PDP
 - [x] Cart
 - [x] Settings
-- [ ] XP API client-side
+- [x] XP API client-side

@@ -1,16 +1,25 @@
 import { Root, StyledHeroParagraph } from './HomePage.styles';
 import { Carousel } from '../../components/Carousel/Carousel';
 import { setDYContext } from '../../utils/setDYContext';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const HomePage: React.FC = () => {
+  const homepageRef = useRef<HTMLDivElement>(null);
   const type = 'HOMEPAGE';
   useEffect(() => {
     setDYContext(type);
   });
+  let isOverflowing = false;
+  useEffect(() => {
+    if (homepageRef.current) {
+      const homepageHeight = homepageRef.current.clientHeight;
+      const viewportHeight = window.innerHeight;
+      isOverflowing = homepageHeight > 0.9 * viewportHeight;
+    }
+  }, []);
 
   return (
-    <Root>
+    <Root isOverflowing={isOverflowing}>
       <div>
         <h4>Hero Banner</h4>
         <div className="dy campaign homepage banner" id="homepage-banner">

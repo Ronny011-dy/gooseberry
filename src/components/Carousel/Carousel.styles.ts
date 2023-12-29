@@ -2,8 +2,17 @@ import styled from 'styled-components';
 
 export const Root = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+`;
+
+export const StyledSlot = styled.a`
+  text-decoration: none;
+`;
+
+export const StyledWrapper = styled.div`
+  display: flex;
   gap: 10px;
 `;

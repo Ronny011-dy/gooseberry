@@ -1,6 +1,6 @@
-import { IconButton } from '@radix-ui/themes';
-import { Root } from './Carousel.styles';
-import { TriangleLeftIcon, TriangleRightIcon } from '@radix-ui/react-icons';
+// import { IconButton } from '@radix-ui/themes';
+import { Root, StyledSlot, StyledWrapper } from './Carousel.styles';
+// import { TriangleLeftIcon, TriangleRightIcon } from '@radix-ui/react-icons';
 import { SlotCard } from './components/SlotCard/SlotCard';
 import { useQuery } from '@tanstack/react-query';
 import { chooseVariation } from '../../api/api.funcs';
@@ -20,21 +20,26 @@ export const Carousel: React.FC = () => {
     productsArr = data.choices[0].variations[0].payload.data.slots.slice(0, 4);
     return (
       <Root>
-        {/* <IconButton variant="ghost">
-          <TriangleLeftIcon />
-        </IconButton> */}
-        {productsArr &&
-          productsArr.map((product: Slot, index: number) => (
-            <SlotCard
-              key={index}
-              name={product.productData.name}
-              image_url={product.productData.image_url}
-              price={product.productData.price}
-            />
-          ))}
-        {/* <IconButton variant="ghost">
-          <TriangleRightIcon />
-        </IconButton> */}
+        {data.choices[0].variations[0].payload.data.custom.title}
+        <StyledWrapper>
+          {/* <IconButton variant="ghost">
+            <TriangleLeftIcon />
+          </IconButton> */}
+          {productsArr &&
+            productsArr.map((product: Slot, index: number) => (
+              <StyledSlot href={product.productData.url}>
+                <SlotCard
+                  key={index}
+                  name={product.productData.name}
+                  image_url={product.productData.image_url}
+                  price={product.productData.price}
+                />
+              </StyledSlot>
+            ))}
+          {/* <IconButton variant="ghost">
+            <TriangleRightIcon />
+          </IconButton> */}
+        </StyledWrapper>
       </Root>
     );
   }

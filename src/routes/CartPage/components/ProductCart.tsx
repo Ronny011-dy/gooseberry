@@ -60,7 +60,7 @@ export const ProductCart: React.FC<ProductCartProps> = ({
       {cartData.length === 0 && 'Cart is empty'}
       {cartData.length !== 0 && (
         <Button variant="outline" onClick={handlePurchase}>
-          Purcahse
+          Purchase
         </Button>
       )}
     </Root>

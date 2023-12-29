@@ -14,8 +14,10 @@ const api = ky.extend({
 });
 
 export const chooseVariation = async () => {
+  const sectionId = window.localStorage.getItem('section_id');
+  const isEU = sectionId && sectionId[0] !== '8';
   return await api
-    .post('https://direct.dy-api.eu/v2/serve/user/choose', {
+    .post(`https://direct.dy-api.${isEU ? 'eu' : 'com'}/v2/serve/user/choose`, {
       json: {
         user: { active_consent_accepted: true },
         context: {
