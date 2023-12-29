@@ -19,22 +19,18 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <Root isOverflowing={isOverflowing}>
-      <div>
+    <Root isOverflowing={isOverflowing} ref={homepageRef}>
+      <div className="dy campaign homepage banner" id="homepage-banner">
         <h4>Hero Banner</h4>
-        <div className="dy campaign homepage banner" id="homepage-banner">
-          <StyledHeroParagraph>
-            Also called Caped Gooseberry, or Peruvian Groundcherry, the
-            gooseberry is both the tastiest berry known to man, and the best
-            support front-end eCommerce sandbox
-          </StyledHeroParagraph>
-        </div>
+        <StyledHeroParagraph>
+          Also called Caped Gooseberry, or Peruvian Groundcherry, the gooseberry
+          is both the tastiest berry known to man, and the best support
+          front-end eCommerce sandbox
+        </StyledHeroParagraph>
       </div>
-      <div>
+      <div className="dy campaign homepage recs" id="homepage-recs">
         <h4>Web campaign</h4>
-        <div className="dy campaign homepage recs" id="homepage-recs">
-          <p>Insert campaign here</p>
-        </div>
+        <p>Insert campaign here</p>
       </div>
       <div className="dy campaign api" id="homepage-api">
         <h4>XP API campaign</h4>
