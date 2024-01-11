@@ -3,29 +3,27 @@ import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { GlobalStyle, Root } from './App.styles';
 import { Theme as RadixUITheme } from '@radix-ui/themes';
-import { useTheme } from 'styled-components';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import { useDyDefaultsContext } from './hooks/useDyDefaultsContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { appendScript } from './utils/functions';
+import { appendScript, getUserColorSchemePreference } from './utils/functions';
 import { HomePage } from './routes/HomePage/HomePage';
 import { CategoryPage } from './routes/CategoryPage/CategoryPage';
 import { ProductPage } from './routes/ProductPage/ProductPage';
 import { CartPage } from './routes/CartPage/CartPage';
 import { SettingsPage } from './routes/SettingsPage/SettingsPage';
 
-function App() {
+export const App = () => {
   const { scriptId } = useDyDefaultsContext();
   useEffect(() => {
     appendScript(scriptId);
   }, []);
   const queryClient = new QueryClient();
-  const theme = useTheme();
   return (
     <HashRouter basename="/">
       <RadixUITheme
-        appearance={`${theme.colors.bg === 'whitesmoke' ? 'light' : 'dark'}`}
+        appearance={getUserColorSchemePreference()}
         radius="small"
         panelBackground="translucent"
         accentColor="yellow"
@@ -48,6 +46,4 @@ function App() {
       </RadixUITheme>
     </HashRouter>
   );
-}
-
-export default App;
+};

@@ -4,6 +4,7 @@ import { setDYContext } from '../../utils/setDYContext';
 import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
 import { DyDefaultsChanger } from './components/DyDefaultsChanger/DyDefaultsChanger';
 import { GooseDetails } from './components/GooseDetails/GooseDetails';
+import { ChangeColorMode } from './components/ChangeColorMode/ChangeColorMode';
 
 type SettingsPageProps = {};
 
@@ -42,6 +43,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = () => {
           setDefaultValue={setProductContext}
         />
       </StyledChangersWrapper>
+      <ChangeColorMode />
       <h4>OTHER campaign</h4>
       <div className="dy campaign other" id="other-campaign">
         <p>Insert campaign here</p>

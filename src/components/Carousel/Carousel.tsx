@@ -27,9 +27,8 @@ export const Carousel: React.FC = () => {
           </IconButton> */}
           {productsArr &&
             productsArr.map((product: Slot, index: number) => (
-              <StyledSlot href={product.productData.url}>
+              <StyledSlot href={product.productData.url} key={index}>
                 <SlotCard
-                  key={index}
                   name={product.productData.name}
                   image_url={product.productData.image_url}
                   price={product.productData.price}

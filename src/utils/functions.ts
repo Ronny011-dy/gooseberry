@@ -1,3 +1,5 @@
+type ThemeAppearance = 'light' | 'dark';
+
 export const appendScript = (id: string) => {
   const prevDy = document.getElementById('dy');
   const prevSt = document.getElementById('st');
@@ -22,3 +24,15 @@ export const parseContext = (data: string) =>
     .replace(/["']/g, '')
     .split(',')
     .map((element) => element.trim());
+
+export const getUserColorSchemePreference = () => {
+  const LocalStoragePreference = window.localStorage
+    .getItem('themePreference')
+    ?.replaceAll('"', '');
+  if (LocalStoragePreference && LocalStoragePreference !== '')
+    return LocalStoragePreference as ThemeAppearance;
+  return window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+};

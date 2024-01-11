@@ -2,6 +2,7 @@ import { useState, useEffect, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme } from './lightTheme';
 import { darkTheme } from './darkTheme';
+import { getUserColorSchemePreference } from '../utils/functions';
 
 type ThemeProviderWithModesProps = {
   children: ReactNode;
@@ -11,10 +12,7 @@ export const ThemeProviderWithModes: React.FC<ThemeProviderWithModesProps> = ({
   children,
 }) => {
   const [theme, setTheme] = useState(
-    window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? darkTheme
-      : lightTheme
+    getUserColorSchemePreference() === 'dark' ? darkTheme : lightTheme
   );
 
   useEffect(() => {

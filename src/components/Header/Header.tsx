@@ -20,8 +20,8 @@ const Header: React.FC<HeaderProps> = () => {
       {/* for production the href should be https://ronny011-dy.github.io/gooseberry/ */}
       {/* for dev its just "/" */}
       <StyledLogoLink
-        href="https://ronny011-dy.github.io/gooseberry/"
-        // href="/"
+        // href="https://ronny011-dy.github.io/gooseberry/"
+        href="/"
         target="_self"
       >
         <StyledLogoWrapper variant="outline">

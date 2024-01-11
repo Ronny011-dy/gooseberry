@@ -26,49 +26,48 @@ export const DyDefaultsChanger: React.FC<DyDefaultsChanger> = ({
   setDefaultValue,
 }) => {
   const [_, setLocalStorage] = useLocalStorage(toChange, '');
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [inputValue, setInputValue] = useState('');
+  const ref = useRef<HTMLInputElement>(null);
+  const [value, setInputValue] = useState('');
   const placeholder = `Enter ${toChange.replace('_', ' ')}`;
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
   const isContext = toChange !== 'section_id';
-  const handleSave = () => {
+  const onClick = () => {
     if (!isContext) {
-      const scriptValidity =
-        inputRef.current && inputRef.current.reportValidity();
+      const scriptValidity = ref.current && ref.current.reportValidity();
       if (scriptValidity) {
-        appendScript(inputValue);
-        setLocalStorage(inputValue); // need to add a check if the value is the exact same then don't do anything
-        setDefaultValue(inputValue);
+        appendScript(value);
+        setLocalStorage(value); // need to add a check if the value is the exact same then don't do anything
+        setDefaultValue(value);
         location.reload();
       }
     } else {
-      setLocalStorage(inputValue);
-      setDefaultValue(inputValue);
+      setLocalStorage(value);
+      setDefaultValue(value);
     }
   };
-  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      handleSave();
-      isContext && inputRef.current?.blur(); //this will onfocus validity report as well
+      onClick();
+      isContext && ref.current?.blur(); //this will onfocus validity report as well
     }
   };
   const inputParams: InputParams = {
     placeholder,
-    ref: inputRef,
-    value: inputValue,
-    onChange: handleInputChange,
-    onKeyDown: handleInputKeyDown,
+    ref,
+    value,
+    onChange,
+    onKeyDown,
   };
   if (toChange === 'section_id') inputParams['pattern'] = '^[89][0-9]{6}$';
   return (
     <Root>
       Current {toChange.split('_')[0]}: {defaultValue}
       <TextFieldInput {...inputParams} />
-      <Button variant="outline" onClick={handleSave}>
+      <Button variant="outline" onClick={onClick}>
         Save
       </Button>
     </Root>
