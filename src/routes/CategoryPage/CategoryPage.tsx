@@ -1,5 +1,6 @@
-import { Root } from './CategoryPage.styles';
 import { useEffect } from 'react';
+
+import { Root } from './CategoryPage.styles';
 import { setDYContext } from '../../utils/setDYContext';
 import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
 import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
@@ -15,9 +16,12 @@ export const CategoryPage: React.FC = () => {
 
   return (
     <Root>
-      <RecContextChanger type="CATEGORY" />
+      <RecContextChanger type='CATEGORY' />
       <h4>Category campaign</h4>
-      <div className="dy campaign category" id="category-campaign">
+      <div
+        className='dy campaign category'
+        id='category-campaign'
+      >
         <p>Insert campaign here</p>
       </div>
     </Root>

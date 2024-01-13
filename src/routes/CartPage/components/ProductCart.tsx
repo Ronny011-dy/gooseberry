@@ -1,4 +1,6 @@
 import { Button } from '@radix-ui/themes';
+import { PlusIcon, MinusIcon } from '@radix-ui/react-icons';
+
 import { eventPurcahse, eventRemoveFromCart } from '../../../utils/dyEvents';
 import {
   Root,
@@ -6,21 +8,16 @@ import {
   StyledButtonWrapper,
   StyledCard,
   StyledCart,
-  StyledProductDiv,
+  StyledProductDiv
 } from './ProductCart.styles';
-import { PlusIcon, MinusIcon } from '@radix-ui/react-icons';
 
-type ProductCartProps = {
+interface Props {
+  addProduct: (skuToAdd: string) => void;
   cartData: string[];
   setCartData: React.Dispatch<React.SetStateAction<string[]>>;
-  addProduct: (skuToAdd: string) => void;
-};
+}
 
-export const ProductCart: React.FC<ProductCartProps> = ({
-  cartData,
-  setCartData,
-  addProduct,
-}) => {
+export const ProductCart: React.FC<Props> = ({ cartData, setCartData, addProduct }) => {
   const removeProduct = (skuToRemove: string) => {
     setCartData((prev) => {
       const lastIndexOfSku = prev.lastIndexOf(skuToRemove);
@@ -40,15 +37,16 @@ export const ProductCart: React.FC<ProductCartProps> = ({
           [...new Set(cartData)].map((sku, i) => (
             <StyledProductDiv key={i}>
               {sku}
-              <StyledCard>
-                {cartData.filter((entry) => entry === sku).length}
-              </StyledCard>
+              <StyledCard>{cartData.filter((entry) => entry === sku).length}</StyledCard>
               <StyledButtonWrapper>
-                <StyledButton variant="ghost" onClick={() => addProduct(sku)}>
+                <StyledButton
+                  variant='ghost'
+                  onClick={() => addProduct(sku)}
+                >
                   <PlusIcon />
                 </StyledButton>
                 <StyledButton
-                  variant="ghost"
+                  variant='ghost'
                   onClick={() => removeProduct(sku)}
                 >
                   <MinusIcon />
@@ -59,7 +57,10 @@ export const ProductCart: React.FC<ProductCartProps> = ({
       </StyledCart>
       {cartData.length === 0 && 'Cart is empty'}
       {cartData.length !== 0 && (
-        <Button variant="outline" onClick={handlePurchase}>
+        <Button
+          variant='outline'
+          onClick={handlePurchase}
+        >
           Purchase
         </Button>
       )}

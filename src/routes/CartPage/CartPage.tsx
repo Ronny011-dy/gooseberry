@@ -1,17 +1,12 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import {
-  Root,
-  StyledAddToCart,
-  StyledAddToCartButton,
-} from './CartPage.styles';
-import { setDYContext } from '../../utils/setDYContext';
 import { TextField } from '@radix-ui/themes';
+
+import { Root, StyledAddToCart, StyledAddToCartButton } from './CartPage.styles';
+import { setDYContext } from '../../utils/setDYContext';
 import { eventAddToCart } from '../../utils/dyEvents';
 import { ProductCart } from './components/ProductCart';
 
-type CartPageProps = {};
-
-export const CartPage: React.FC<CartPageProps> = () => {
+export const CartPage: React.FC = () => {
   const type = 'CART';
   const [cartData, setCartData] = useState<string[]>([]);
   const [skuToAdd, setSKUToAdd] = useState('');
@@ -27,7 +22,7 @@ export const CartPage: React.FC<CartPageProps> = () => {
     eventAddToCart(skuToAdd, cartData);
   };
 
-  const productCartProps = { cartData, setCartData, addProduct };
+  const productCartProps = { addProduct, cartData, setCartData };
 
   const handleSKUInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSKUToAdd(e.target.value);
@@ -48,18 +43,24 @@ export const CartPage: React.FC<CartPageProps> = () => {
   return (
     <Root>
       <h4>Cart campaign</h4>
-      <div className="dy campaign cart" id="cart-campaign">
+      <div
+        className='dy campaign cart'
+        id='cart-campaign'
+      >
         <p>Insert campaign here</p>
       </div>
       <StyledAddToCart>
         <TextField.Input
-          placeholder="SKU"
-          value={skuToAdd}
+          placeholder='SKU'
           ref={skuInputRef}
+          value={skuToAdd}
           onChange={handleSKUInputChange}
           onKeyDown={handleSKUInputKeyDown}
         />
-        <StyledAddToCartButton variant="outline" onClick={handleAddToCart}>
+        <StyledAddToCartButton
+          variant='outline'
+          onClick={handleAddToCart}
+        >
           Add to cart
         </StyledAddToCartButton>
       </StyledAddToCart>

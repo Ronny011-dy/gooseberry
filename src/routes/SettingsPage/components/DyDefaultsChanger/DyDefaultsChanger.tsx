@@ -1,30 +1,27 @@
 import { ChangeEvent, useRef, useState } from 'react';
+import { Button, TextFieldInput } from '@radix-ui/themes';
+
 import { useLocalStorage } from '../../../../hooks/useLocalStorage';
 import { Root } from './DyDefaultsChanger.styles';
-import { Button, TextFieldInput } from '@radix-ui/themes';
 import type { LocalStorageKey } from '../../../../components/DyDefaultsProvider/DyDefaultsProvider';
 import { appendScript } from '../../../../utils/functions';
 
-type DyDefaultsChanger = {
-  toChange: LocalStorageKey;
+interface Props {
   defaultValue: string | string[];
   setDefaultValue: React.Dispatch<React.SetStateAction<string>>;
-};
+  toChange: LocalStorageKey;
+}
 
 type InputParams = {
-  placeholder: string;
-  ref: React.RefObject<HTMLInputElement>;
-  value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void;
   pattern?: string;
+  placeholder: string;
+  ref: React.RefObject<HTMLInputElement>;
+  value: string;
 };
 
-export const DyDefaultsChanger: React.FC<DyDefaultsChanger> = ({
-  toChange,
-  defaultValue,
-  setDefaultValue,
-}) => {
+export const DyDefaultsChanger: React.FC<Props> = ({ toChange, defaultValue, setDefaultValue }) => {
   const [_, setLocalStorage] = useLocalStorage(toChange, '');
   const ref = useRef<HTMLInputElement>(null);
   const [value, setInputValue] = useState('');
@@ -56,18 +53,21 @@ export const DyDefaultsChanger: React.FC<DyDefaultsChanger> = ({
     }
   };
   const inputParams: InputParams = {
-    placeholder,
-    ref,
-    value,
     onChange,
     onKeyDown,
+    placeholder,
+    ref,
+    value
   };
   if (toChange === 'section_id') inputParams['pattern'] = '^[89][0-9]{6}$';
   return (
     <Root>
       Current {toChange.split('_')[0]}: {defaultValue}
       <TextFieldInput {...inputParams} />
-      <Button variant="outline" onClick={onClick}>
+      <Button
+        variant='outline'
+        onClick={onClick}
+      >
         Save
       </Button>
     </Root>

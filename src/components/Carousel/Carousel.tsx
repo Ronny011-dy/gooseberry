@@ -1,8 +1,9 @@
 // import { IconButton } from '@radix-ui/themes';
+import { useQuery } from '@tanstack/react-query';
+
 import { Root, StyledSlot, StyledWrapper } from './Carousel.styles';
 // import { TriangleLeftIcon, TriangleRightIcon } from '@radix-ui/react-icons';
 import { SlotCard } from './components/SlotCard/SlotCard';
-import { useQuery } from '@tanstack/react-query';
 import { chooseVariation } from '../../api/api.funcs';
 import { Slot } from '../../api/api.types';
 
@@ -11,8 +12,8 @@ export const Carousel: React.FC = () => {
 
   // the typescript Jiujitsu needed to replace 'any' with an actual type is not worth it for now
   const { status, data, error } = useQuery<any>({
-    queryKey: ['slots'],
     queryFn: chooseVariation,
+    queryKey: ['slots']
   });
   if (status === 'error') return <div>{error.message}</div>;
   if (status === 'success') {
@@ -27,10 +28,13 @@ export const Carousel: React.FC = () => {
           </IconButton> */}
           {productsArr &&
             productsArr.map((product: Slot, index: number) => (
-              <StyledSlot href={product.productData.url} key={index}>
+              <StyledSlot
+                href={product.productData.url}
+                key={index}
+              >
                 <SlotCard
-                  name={product.productData.name}
                   image_url={product.productData.image_url}
+                  name={product.productData.name}
                   price={product.productData.price}
                 />
               </StyledSlot>

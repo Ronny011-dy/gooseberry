@@ -4,13 +4,12 @@
   --gooseberry-light: whitesmoke;
   --gooseberry-dark: rgb(30, 30, 30);
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--gooseberry-dark);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 :root::-webkit-scrollbar {
   display: none;

@@ -1,16 +1,11 @@
 import { Checkbox, Switch } from '@radix-ui/themes';
+
 import { Root, StyledSwitchWrapper } from './ChangeColorMode.styles';
 import { useLocalStorage } from '../../../../hooks/useLocalStorage';
 
 export const ChangeColorMode: React.FC = () => {
-  const [themeLocalStorage, setThemeLocalStorage] = useLocalStorage(
-    'themePreference',
-    'dark'
-  );
-  const [overrideLocalStorage, setOverrideLocalStorage] = useLocalStorage(
-    'gooseberry_theme_override',
-    false
-  );
+  const [themeLocalStorage, setThemeLocalStorage] = useLocalStorage('themePreference', 'dark');
+  const [overrideLocalStorage, setOverrideLocalStorage] = useLocalStorage('gooseberry_theme_override', false);
   const onCheck = () => {
     setOverrideLocalStorage((prev) => !prev);
     !overrideLocalStorage && setThemeLocalStorage('dark');
@@ -22,17 +17,21 @@ export const ChangeColorMode: React.FC = () => {
     setThemeLocalStorage(themeLocalStorage === 'dark' ? 'light' : 'dark');
     location.reload(); // same
   };
+
   return (
     <Root>
       Override color mode
-      <Checkbox onClick={onCheck} checked={overrideLocalStorage} />
+      <Checkbox
+        checked={overrideLocalStorage}
+        onClick={onCheck}
+      />
       <StyledSwitchWrapper>
         Dark
         <Switch
-          variant="soft"
-          disabled={!overrideLocalStorage}
-          onClick={onToggle}
           checked={themeLocalStorage !== 'dark'}
+          disabled={!overrideLocalStorage}
+          variant='soft'
+          onClick={onToggle}
         />
         Light
       </StyledSwitchWrapper>
