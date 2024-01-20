@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 
-import { Root } from './CategoryPage.styles';
-import { setDYContext } from '../../utils/setDYContext';
+import { setDYContext, parseContext } from '../../utils';
 import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
 import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
-import { parseContext } from '../../utils/functions';
+import { SitePage } from '../../components/SitePage';
 
 export const CategoryPage: React.FC = () => {
   const type = 'CATEGORY';
@@ -15,7 +14,7 @@ export const CategoryPage: React.FC = () => {
   });
 
   return (
-    <Root>
+    <SitePage>
       <RecContextChanger type='CATEGORY' />
       <h4>Category campaign</h4>
       <div
@@ -24,6 +23,6 @@ export const CategoryPage: React.FC = () => {
       >
         <p>Insert campaign here</p>
       </div>
-    </Root>
+    </SitePage>
   );
 };

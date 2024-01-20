@@ -1,0 +1,1 @@
+export { GooseDetails } from './GooseDetails';

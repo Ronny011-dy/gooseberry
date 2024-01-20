@@ -1,10 +1,10 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { TextField } from '@radix-ui/themes';
 
-import { Root, StyledAddToCart, StyledAddToCartButton } from './CartPage.styles';
-import { setDYContext } from '../../utils/setDYContext';
-import { eventAddToCart } from '../../utils/dyEvents';
+import { StyledAddToCart, StyledAddToCartButton } from './CartPage.styles';
+import { setDYContext, eventAddToCart } from '../../utils';
 import { ProductCart } from './components/ProductCart';
+import { SitePage } from '../../components/SitePage';
 
 export const CartPage: React.FC = () => {
   const type = 'CART';
@@ -41,7 +41,7 @@ export const CartPage: React.FC = () => {
   };
 
   return (
-    <Root>
+    <SitePage>
       <h4>Cart campaign</h4>
       <div
         className='dy campaign cart'
@@ -65,6 +65,6 @@ export const CartPage: React.FC = () => {
         </StyledAddToCartButton>
       </StyledAddToCart>
       <ProductCart {...productCartProps} />
-    </Root>
+    </SitePage>
   );
 };

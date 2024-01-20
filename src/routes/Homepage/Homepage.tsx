@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 
-import { Carousel } from '../../components/Carousel/Carousel';
+import { Carousel } from '../../components/Carousel';
 import { setDYContext } from '../../utils/setDYContext';
-import { Root } from './Homepage.styles';
+import { SitePage } from '../../components/SitePage';
 
-const HomePage: React.FC = () => {
+export const HomePage: React.FC = () => {
   const type = 'HOMEPAGE';
   useEffect(() => {
     setDYContext(type);
   });
 
   return (
-    <Root>
+    <SitePage>
       <h4>Hero Banner</h4>
       <div
         className='dy campaign homepage banner'
@@ -35,9 +35,11 @@ const HomePage: React.FC = () => {
         id='homepage-api'
       >
         <Carousel />
+        <Carousel />
+        <Carousel />
+        <Carousel />
+        <Carousel />
       </div>
-    </Root>
+    </SitePage>
   );
 };
-
-export { HomePage };

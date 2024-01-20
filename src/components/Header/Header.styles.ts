@@ -29,7 +29,7 @@ export const StyledLogoWrapper = styled(Button)`
   }
 `;
 
-export const StyledLogoLink = styled.a`
+export const StyledLogoLink = styled(Link)`
   color: ${(props) => props.theme.constantColors.black};
   padding-left: 30px;
   display: flex;

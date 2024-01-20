@@ -1,4 +1,6 @@
-export const lightTheme = {
+import { ThemeMode } from './ThemeProvider';
+
+export const lightTheme: ThemeMode = {
   colors: {
     bg: 'whitesmoke',
     bga: 'rgba(245, 245, 245, 0.2)',

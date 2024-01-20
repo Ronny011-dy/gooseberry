@@ -16,8 +16,8 @@ const Header: React.FC<HeaderProps> = () => {
       {/* for dev its just "/" */}
       <StyledLogoLink
         // href="https://ronny011-dy.github.io/gooseberry/"
-        href='/'
         target='_self'
+        to='/'
       >
         <StyledLogoWrapper variant='outline'>
           <img src={theme.colors.bg === 'whitesmoke' ? gooseLogoLight : gooseLogo} />

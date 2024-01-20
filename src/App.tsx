@@ -4,16 +4,13 @@ import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { GlobalStyle, Root } from './App.styles';
 import { useDyDefaultsContext } from './hooks/useDyDefaultsContext';
-import { appendScript, getUserColorSchemePreference } from './utils/functions';
-import { CategoryPage } from './routes/CategoryPage/CategoryPage';
-import { ProductPage } from './routes/ProductPage/ProductPage';
-import { CartPage } from './routes/CartPage/CartPage';
-import { SettingsPage } from './routes/SettingsPage/SettingsPage';
-import { HomePage } from './routes/Homepage/Homepage';
+import { appendScript, getOSPreference } from './utils';
+import { HomePage, CategoryPage, ProductPage, CartPage, SettingsPage } from './routes';
+import { usePersistColorModeStore } from './store';
 
 export const App = () => {
   const { scriptId } = useDyDefaultsContext();
@@ -21,11 +18,13 @@ export const App = () => {
     appendScript(scriptId);
   }, []);
   const queryClient = new QueryClient();
+  const { colorModeString, shouldOverride } = usePersistColorModeStore();
+
   return (
     <HashRouter basename='/'>
       <RadixUITheme
         accentColor='yellow'
-        appearance={getUserColorSchemePreference()}
+        appearance={shouldOverride ? colorModeString : getOSPreference()}
         panelBackground='translucent'
         radius='small'
       >

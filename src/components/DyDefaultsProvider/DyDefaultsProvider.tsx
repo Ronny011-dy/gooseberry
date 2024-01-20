@@ -24,7 +24,9 @@ const checkLocalStorage = (defaultValue: string, key: LocalStorageKey) => {
   else if (valueFromLocalStorage !== '""') return valueFromLocalStorage.replaceAll('"', '');
   return 'error';
 };
-
+/**
+ * @deprecated This component is deprecated and should be replaced with zustand store
+ */
 export const DyDefaultsProvider: React.FC<Props> = ({ children }) => {
   const [scriptId, setScriptId] = useState(checkLocalStorage('9880233', 'section_id'));
   const [categoryContext, setCategoryContext] = useState(checkLocalStorage('Gin', 'category_data'));

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-
+/**
+ * @deprecated This hook is deprecated and will be replaced with zustand middleware
+ */
 export const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [value, setValue] = useState<T>(() => {
     try {

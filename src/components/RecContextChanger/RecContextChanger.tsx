@@ -3,7 +3,7 @@ import { Button, TextField } from '@radix-ui/themes';
 import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
-import { PageContext, setDYContext } from '../../utils/setDYContext';
+import { PageContext, setDYContext } from '../../utils';
 import { Root } from './RecContextChanger.styles';
 
 interface Props {

@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 86vh;
+  min-height: 70vh;
   height: fit-content;
-  margin-top: 10vh;
-  gap: 25px;
+  flex: 1;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
   color: ${(props) => props.theme.colors.fg};
   text-align: center;
 `;

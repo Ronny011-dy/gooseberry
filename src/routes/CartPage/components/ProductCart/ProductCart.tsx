@@ -1,7 +1,7 @@
 import { Button } from '@radix-ui/themes';
 import { PlusIcon, MinusIcon } from '@radix-ui/react-icons';
 
-import { eventPurcahse, eventRemoveFromCart } from '../../../utils/dyEvents';
+import { eventPurcahse, eventRemoveFromCart } from '../../../../utils';
 import {
   Root,
   StyledButton,

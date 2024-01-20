@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 
 import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
 import { setDYContext } from '../../utils/setDYContext';
-import { Root } from './ProductPage.styles';
 import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
 import { parseContext } from '../../utils/functions';
+import { SitePage } from '../../components/SitePage';
 
 export const ProductPage: React.FC = () => {
   const type = 'PRODUCT';
@@ -14,7 +14,7 @@ export const ProductPage: React.FC = () => {
   });
 
   return (
-    <Root>
+    <SitePage>
       <RecContextChanger type='PRODUCT' />
       <h4>Product campaign</h4>
       <div
@@ -23,6 +23,6 @@ export const ProductPage: React.FC = () => {
       >
         <p>Insert campaign here</p>
       </div>
-    </Root>
+    </SitePage>
   );
 };

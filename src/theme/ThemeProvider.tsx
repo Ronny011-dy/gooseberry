@@ -3,22 +3,40 @@ import { ThemeProvider } from 'styled-components';
 
 import { lightTheme } from './lightTheme';
 import { darkTheme } from './darkTheme';
-import { getUserColorSchemePreference } from '../utils/functions';
+import { ColorMode, usePersistColorModeStore } from '../store';
+import { getOSPreference } from '../utils';
 
+export type ThemeMode = {
+  colors: {
+    bg: string;
+    bga: string;
+    fg: string;
+    fga: string;
+    primary: string;
+  };
+};
 interface Props {
   children: ReactNode;
 }
 
+const themeChooser = (colorMode: ColorMode): ThemeMode => (colorMode === 'dark' ? darkTheme : lightTheme);
+
 export const ThemeProviderWithModes: React.FC<Props> = ({ children }) => {
-  const [theme, setTheme] = useState(getUserColorSchemePreference() === 'dark' ? darkTheme : lightTheme);
+  const { colorModeString, shouldOverride } = usePersistColorModeStore();
+  const themeChoice = themeChooser(shouldOverride ? colorModeString : getOSPreference());
+  const [theme, setTheme] = useState(themeChoice);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = () => setTheme(mediaQuery.matches ? darkTheme : lightTheme);
+    const handleChange = () => !shouldOverride && setTheme(mediaQuery.matches ? darkTheme : lightTheme);
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+  }, [shouldOverride]);
+
+  useEffect(() => {
+    setTheme(themeChoice);
+  }, [shouldOverride, themeChoice]);
 
   const themeWithExtras = {
     borderRadius: '5px',
