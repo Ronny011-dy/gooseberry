@@ -36,7 +36,7 @@ These are the initial steps taken to create this project, and host it on GitHub 
 > Make sure you have node first. You can install it [here](https://nodejs.org/en)
 >
 > ```console
->   ~$ node -v
+>   node -v
 > ```
 
 1. Create a new repository on GitHub and get a URL for cloning
@@ -46,13 +46,13 @@ These are the initial steps taken to create this project, and host it on GitHub 
 - Install `create-vite` globally:
 
 ```console
-   ~$ sudo npm install -g create-vite
+   sudo npm install -g create-vite
 ```
 
 - Run the app scaffolding:
 
 ```console
-   ~$ npm create vite@latest
+   npm create vite@latest
 ```
 
 - Use any name for the project, it doesn't have to match the repo name
@@ -60,28 +60,28 @@ These are the initial steps taken to create this project, and host it on GitHub 
 - Go into the project:
 
 ```console
-   ~$ cd projectName
+   cd projectName
 ```
 
 - Install all dependencies that exist in `package.json`:
 
 ```console
-   ~$ projectName % npm i
+   projectName % npm i
 ```
 
 1. Initialize and link the repo, then build the app using the following commands:
 
 ```console
-   ~$ projectName % git init
-   ~$ projectName % git add .
-   ~$ projectName % git commit -m "Init"
-   ~$ projectName % git remote add origin https://github.com/userName/repoName.git
-   ~$ projectName % git push -u origin main
-   ~$ projectName % code .
-   ~$ projectName % npm run build
-   ~$ projectName % git add dist -f
-   ~$ projectName % git commit -m "adding dist"
-   ~$ projectName % git subtree push --prefix dist origin gh-pages
+   projectName % git init
+   projectName % git add .
+   projectName % git commit -m "Init"
+   projectName % git remote add origin https://github.com/userName/repoName.git
+   projectName % git push -u origin main
+   projectName % code .
+   projectName % npm run build
+   projectName % git add dist -f
+   projectName % git commit -m "adding dist"
+   projectName % git subtree push --prefix dist origin gh-pages
 ```
 
 - Before building the app for production, go to `vite.config.ts` and replace the code with (replace with name of your repo):
@@ -89,7 +89,7 @@ These are the initial steps taken to create this project, and host it on GitHub 
 ```js
 export default defineConfig({
   base: '/repoName/',
-  plugins: [react()],
+  plugins: [react()]
 });
 ```
 
@@ -100,13 +100,13 @@ export default defineConfig({
 - Vite has blazing fast build times but also Hot Module Replacement, so you can see the dev project rendered live as you save any code changes. Just use the following to start developing:
 
 ```console
-   ~$ projectName % npm run dev
+   projectName % npm run dev
 ```
 
 - For deploying your changes easily, first install [gh-pages](https://www.npmjs.com/package/gh-pages):
 
 ```console
-   ~$ projectName % npm install gh-pages --save-dev
+   projectName % npm install gh-pages --save-dev
 ```
 
 Then add the following script in `package.json`:
@@ -122,7 +122,7 @@ Lastly, use `npm run deploy` after building.
 - To add support for creating more pages (for a multi-context site), install [react-router-dom](https://reactrouter.com/en/main):
 
 ```console
-   ~$ projectName % npm install react-router-dom
+   projectName % npm install react-router-dom
 ```
 
 For an easier time building your site in React, it's recommended (but not necessary) to install:
