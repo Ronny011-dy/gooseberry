@@ -31,7 +31,7 @@ export const eventRemoveFromCart = (skuToRemove: string, cartArr: string[]) => {
   });
 };
 
-export const eventPurcahse = (cartArr: string[]) => {
+export const eventPurchase = (cartArr: string[]) => {
   (window as any).DY.API('event', {
     name: 'Purchase',
     properties: {

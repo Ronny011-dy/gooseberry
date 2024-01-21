@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { Carousel } from '../../components/Carousel';
-import { setDYContext } from '../../utils/setDYContext';
+import { setDYContext } from '../../utils';
 import { SitePage } from '../../components/SitePage';
 
 export const HomePage: React.FC = () => {
@@ -34,10 +34,6 @@ export const HomePage: React.FC = () => {
         className='dy campaign api'
         id='homepage-api'
       >
-        <Carousel />
-        <Carousel />
-        <Carousel />
-        <Carousel />
         <Carousel />
       </div>
     </SitePage>

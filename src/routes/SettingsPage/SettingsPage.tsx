@@ -1,40 +1,71 @@
 import { useEffect } from 'react';
+import { ResetIcon } from '@radix-ui/react-icons';
+import { Tooltip } from '@radix-ui/themes';
+import toast from 'react-hot-toast';
 
-import { StyledChangersWrapper } from './SettingsPage.styles';
+import { StyledButton, StyledChangersWrapper, StyledTitle } from './SettingsPage.styles';
 import { setDYContext } from '../../utils';
-import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
 import { DyDefaultsChanger } from './components/DyDefaultsChanger';
 import { GooseDetails } from './components/GooseDetails';
 import { ChangeColorMode } from './components/ChangeColorMode';
 import { SitePage } from '../../components/SitePage';
+import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store';
 
 export const SettingsPage: React.FC = () => {
   const type = 'OTHER';
   useEffect(() => {
     setDYContext(type);
   });
-  const { scriptId, setScriptId, categoryContext, setCategoryContext, productContext, setProductContext } =
-    useDyDefaultsContext();
+
+  const { scriptId, categoryContext, productContext, setScriptId, setCategoryContext, setProductContext } =
+    usePersistDyDefaultsStore();
+  const { apiKey, selector, setApiKey, setSelector } = usePersistApiValuesStore();
+
+  const handleStoreReset = async () => {
+    setScriptId('9880233');
+    setCategoryContext('Gin');
+    setProductContext('3853');
+    toast.success('Values reset to default');
+  };
 
   return (
     <SitePage>
-      <h4>Defaults</h4>
+      <StyledTitle>
+        <h4>Defaults</h4>
+        <Tooltip content='Reset to default values'>
+          <StyledButton
+            variant='outline'
+            onClick={handleStoreReset}
+          >
+            <ResetIcon />
+          </StyledButton>
+        </Tooltip>
+      </StyledTitle>
       <StyledChangersWrapper>
         <DyDefaultsChanger
           defaultValue={scriptId}
+          placeholder='script id'
           setDefaultValue={setScriptId}
-          toChange='section_id'
         />
         <DyDefaultsChanger
           defaultValue={categoryContext}
+          placeholder='category data'
           setDefaultValue={setCategoryContext}
-          toChange='category_data'
         />
-        {/* <p>XP API Client Side Key</p> */}
         <DyDefaultsChanger
           defaultValue={productContext}
+          placeholder='product data'
           setDefaultValue={setProductContext}
-          toChange='product_data'
+        />
+        <DyDefaultsChanger
+          defaultValue={apiKey}
+          placeholder='api key'
+          setDefaultValue={setApiKey}
+        />
+        <DyDefaultsChanger
+          defaultValue={selector}
+          placeholder='api selector'
+          setDefaultValue={setSelector}
         />
       </StyledChangersWrapper>
       <ChangeColorMode />

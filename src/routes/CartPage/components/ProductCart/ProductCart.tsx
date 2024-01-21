@@ -1,7 +1,8 @@
 import { Button } from '@radix-ui/themes';
 import { PlusIcon, MinusIcon } from '@radix-ui/react-icons';
+import toast from 'react-hot-toast';
 
-import { eventPurcahse, eventRemoveFromCart } from '../../../../utils';
+import { eventPurchase, eventRemoveFromCart } from '../../../../utils';
 import {
   Root,
   StyledButton,
@@ -27,7 +28,10 @@ export const ProductCart: React.FC<Props> = ({ cartData, setCartData, addProduct
     eventRemoveFromCart(skuToRemove, cartData);
   };
 
-  const handlePurchase = () => eventPurcahse(cartData);
+  const handlePurchase = () => {
+    eventPurchase(cartData);
+    toast.success('Purcahse fired');
+  };
 
   return (
     <Root>

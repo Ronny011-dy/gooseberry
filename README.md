@@ -66,22 +66,22 @@ These are the initial steps taken to create this project, and host it on GitHub 
 - Install all dependencies that exist in `package.json`:
 
 ```console
-   projectName % npm i
+   npm i
 ```
 
 1. Initialize and link the repo, then build the app using the following commands:
 
 ```console
-   projectName % git init
-   projectName % git add .
-   projectName % git commit -m "Init"
-   projectName % git remote add origin https://github.com/userName/repoName.git
-   projectName % git push -u origin main
-   projectName % code .
-   projectName % npm run build
-   projectName % git add dist -f
-   projectName % git commit -m "adding dist"
-   projectName % git subtree push --prefix dist origin gh-pages
+   git init
+   git add .
+   git commit -m "Init"
+   git remote add origin https://github.com/userName/repoName.git
+   git push -u origin main
+   code .
+   npm run build
+   git add dist -f
+   git commit -m "adding dist"
+   git subtree push --prefix dist origin gh-pages
 ```
 
 - Before building the app for production, go to `vite.config.ts` and replace the code with (replace with name of your repo):
@@ -100,13 +100,13 @@ export default defineConfig({
 - Vite has blazing fast build times but also Hot Module Replacement, so you can see the dev project rendered live as you save any code changes. Just use the following to start developing:
 
 ```console
-   projectName % npm run dev
+   npm run dev
 ```
 
 - For deploying your changes easily, first install [gh-pages](https://www.npmjs.com/package/gh-pages):
 
 ```console
-   projectName % npm install gh-pages --save-dev
+   npm install gh-pages --save-dev
 ```
 
 Then add the following script in `package.json`:
@@ -122,7 +122,7 @@ Lastly, use `npm run deploy` after building.
 - To add support for creating more pages (for a multi-context site), install [react-router-dom](https://reactrouter.com/en/main):
 
 ```console
-   projectName % npm install react-router-dom
+   npm install react-router-dom
 ```
 
 For an easier time building your site in React, it's recommended (but not necessary) to install:
@@ -140,12 +140,5 @@ For an easier time building your site in React, it's recommended (but not necess
 
 ### Stuff to add
 
-- [x] Homepage
-- [x] React Router
-- [x] DY scripts
-- [x] Category page
-- [x] Context provider for scripts
-- [x] PDP
-- [x] Cart
-- [x] Settings
-- [x] XP API client-side
+- [ ] XP API key and selector settings
+- [ ] Suggested feedback

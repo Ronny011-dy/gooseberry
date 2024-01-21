@@ -1,16 +1,11 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import { Button, TextFieldInput } from '@radix-ui/themes';
+import toast from 'react-hot-toast';
 
-import { useLocalStorage } from '../../../../hooks/useLocalStorage';
-import { Root } from './DyDefaultsChanger.styles';
-import type { LocalStorageKey } from '../../../../components/DyDefaultsProvider/DyDefaultsProvider';
-import { appendScript } from '../../../../utils/functions';
+import { Root, StyledEllipsis } from './DyDefaultsChanger.styles';
+import { appendScript } from '../../../../utils';
 
-interface Props {
-  defaultValue: string | string[];
-  setDefaultValue: React.Dispatch<React.SetStateAction<string>>;
-  toChange: LocalStorageKey;
-}
+type Placeholders = 'script id' | 'category data' | 'product data' | 'api key' | 'api selector';
 
 type InputParams = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -20,49 +15,64 @@ type InputParams = {
   ref: React.RefObject<HTMLInputElement>;
   value: string;
 };
+interface Props {
+  defaultValue: string;
+  placeholder: Placeholders;
+  setDefaultValue: (param: string) => void;
+}
 
-export const DyDefaultsChanger: React.FC<Props> = ({ toChange, defaultValue, setDefaultValue }) => {
-  const [_, setLocalStorage] = useLocalStorage(toChange, '');
+export const DyDefaultsChanger: React.FC<Props> = ({ defaultValue, setDefaultValue, placeholder }) => {
   const ref = useRef<HTMLInputElement>(null);
   const [value, setInputValue] = useState('');
-  const placeholder = `Enter ${toChange.replace('_', ' ')}`;
+  const isContextOrSelector = placeholder !== 'script id';
+
+  const onScriptSave = () => {
+    const scriptValidity = ref.current && ref.current.reportValidity();
+    if (scriptValidity) {
+      appendScript(value);
+      setDefaultValue(value);
+      location.reload();
+    }
+  };
+
+  const onContextAndSelectorSave = () => {
+    setDefaultValue(value);
+    toast.success('Context changed successfully');
+  };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
-  const isContext = toChange !== 'section_id';
+
   const onClick = () => {
-    if (!isContext) {
-      const scriptValidity = ref.current && ref.current.reportValidity();
-      if (scriptValidity) {
-        appendScript(value);
-        setLocalStorage(value); // need to add a check if the value is the exact same then don't do anything
-        setDefaultValue(value);
-        location.reload();
-      }
+    if (placeholder === 'script id') {
+      onScriptSave();
     } else {
-      setLocalStorage(value);
-      setDefaultValue(value);
+      onContextAndSelectorSave();
     }
   };
+
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       onClick();
-      isContext && ref.current?.blur(); //this will onfocus validity report as well
+      isContextOrSelector && ref.current?.blur(); //this will onfocus validity report as well
     }
   };
+
   const inputParams: InputParams = {
     onChange,
     onKeyDown,
-    placeholder,
+    placeholder: `Enter ${placeholder}`,
     ref,
     value
   };
-  if (toChange === 'section_id') inputParams['pattern'] = '^[89][0-9]{6}$';
+
+  if (placeholder === 'script id') inputParams['pattern'] = '^[89][0-9]{6}$';
+
   return (
     <Root>
-      Current {toChange.split('_')[0]}: {defaultValue}
+      Current {placeholder}: <StyledEllipsis variant='ghost'>{defaultValue}</StyledEllipsis>
       <TextFieldInput {...inputParams} />
       <Button
         variant='outline'

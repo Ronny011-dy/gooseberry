@@ -1,19 +1,27 @@
 import ky from 'ky';
 
-const api = ky.extend({
-  hooks: {
-    beforeRequest: [
-      (request) => {
-        request.headers.set('DY-API-Key', '7a0fd330b12068d6e2348167297a3c03d96fcb57e76cd771c5bbdd78e3eea8fb');
-      }
-    ]
-  }
-});
+// const api = ky.extend({
+//   hooks: {
+//     beforeRequest: [
+//       (request) => {
+//         request.headers.set('DY-API-Key', '7a0fd330b12068d6e2348167297a3c03d96fcb57e76cd771c5bbdd78e3eea8fb');
+//       }
+//     ]
+//   }
+// });
 
-export const chooseVariation = async () => {
-  const sectionId = window.localStorage.getItem('section_id');
-  const isEU = sectionId && sectionId[0] !== '8';
-  return await api
+export const chooseVariation = async (scriptId: string, selector: string, apiKey: string) => {
+  const isEU = scriptId && scriptId[0] !== '8';
+  return await ky
+    .extend({
+      hooks: {
+        beforeRequest: [
+          (request) => {
+            request.headers.set('DY-API-Key', apiKey);
+          }
+        ]
+      }
+    })
     .post(`https://direct.dy-api.${isEU ? 'eu' : 'com'}/v2/serve/user/choose`, {
       json: {
         context: {
@@ -28,10 +36,11 @@ export const chooseVariation = async () => {
             type: 'HOMEPAGE'
           }
         },
+        explainMode: 'debug',
         options: {
           isImplicitPageview: true
         },
-        selector: { names: ['api-rec'] },
+        selector: { names: [selector] },
         user: { active_consent_accepted: true }
       }
     })

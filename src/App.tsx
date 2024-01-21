@@ -1,19 +1,19 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Theme as RadixUITheme } from '@radix-ui/themes';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { GlobalStyle, Root } from './App.styles';
-import { useDyDefaultsContext } from './hooks/useDyDefaultsContext';
 import { appendScript, getOSPreference } from './utils';
-import { HomePage, CategoryPage, ProductPage, CartPage, SettingsPage } from './routes';
-import { usePersistColorModeStore } from './store';
+import { SiteRoutes } from './routes';
+import { usePersistColorModeStore, usePersistDyDefaultsStore } from './store';
 
 export const App = () => {
-  const { scriptId } = useDyDefaultsContext();
+  const { scriptId } = usePersistDyDefaultsStore();
   useEffect(() => {
     appendScript(scriptId);
   }, []);
@@ -33,31 +33,11 @@ export const App = () => {
           reverseOrder={false}
         />
         <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
           <GlobalStyle />
           <Root>
             <Header />
-            <Routes>
-              <Route
-                element={<HomePage />}
-                path='/'
-              />
-              <Route
-                element={<CategoryPage />}
-                path='/category'
-              />
-              <Route
-                element={<ProductPage />}
-                path='/product'
-              />
-              <Route
-                element={<CartPage />}
-                path='/cart'
-              />
-              <Route
-                element={<SettingsPage />}
-                path='/settings'
-              />
-            </Routes>
+            <SiteRoutes />
             <Footer />
           </Root>
         </QueryClientProvider>

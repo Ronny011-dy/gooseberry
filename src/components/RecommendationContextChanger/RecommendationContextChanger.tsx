@@ -4,13 +4,13 @@ import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
 import { PageContext, setDYContext } from '../../utils';
-import { Root } from './RecContextChanger.styles';
+import { Root } from './RecommendationContextChanger.styles';
 
 interface Props {
   type: PageContext;
 }
 
-export const RecContextChanger: React.FC<Props> = ({ type }) => {
+export const RecommendationContextChanger: React.FC<Props> = ({ type }) => {
   const [contextData, setContextData] = useState('');
   const textInputRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

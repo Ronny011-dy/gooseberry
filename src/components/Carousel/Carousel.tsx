@@ -1,20 +1,31 @@
 // import { IconButton } from '@radix-ui/themes';
 import { useQuery } from '@tanstack/react-query';
+import { ThreeDots } from 'react-loader-spinner';
+import { useTheme } from 'styled-components';
 
-import { Root, StyledSlot, StyledWrapper } from './Carousel.styles';
+import { Root, StyledLoadingWrapper, StyledSlot, StyledWrapper } from './Carousel.styles';
 // import { TriangleLeftIcon, TriangleRightIcon } from '@radix-ui/react-icons';
-import { SlotCard } from './components/SlotCard/SlotCard';
-import { chooseVariation } from '../../api/api.funcs';
-import { Slot } from '../../api/api.types';
+import { SlotCard } from './components/SlotCard';
+import { Slot, chooseVariation } from '../../api';
+import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store';
 
 export const Carousel: React.FC = () => {
+  const theme = useTheme();
   let productsArr = [];
-
+  const { scriptId } = usePersistDyDefaultsStore();
+  const { selector, apiKey } = usePersistApiValuesStore();
   // the typescript Jiujitsu needed to replace 'any' with an actual type is not worth it for now
-  const { status, data, error } = useQuery<any>({
-    queryFn: chooseVariation,
-    queryKey: ['slots']
+  const { status, data, isLoading, error } = useQuery<any>({
+    queryFn: () => chooseVariation(scriptId, selector, apiKey),
+    queryKey: ['slots'],
+    staleTime: 5 * 1000 * 60
   });
+  if (isLoading)
+    return (
+      <StyledLoadingWrapper>
+        <ThreeDots color={theme.colors.primary} />
+      </StyledLoadingWrapper>
+    );
   if (status === 'error') return <div>{error.message}</div>;
   if (status === 'success') {
     // take only 4 products

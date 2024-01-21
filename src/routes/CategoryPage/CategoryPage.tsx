@@ -1,21 +1,21 @@
 import { useEffect } from 'react';
 
 import { setDYContext, parseContext } from '../../utils';
-import { RecContextChanger } from '../../components/RecContextChanger/RecContextChanger';
-import { useDyDefaultsContext } from '../../hooks/useDyDefaultsContext';
+import { RecommendationContextChanger } from '../../components/RecommendationContextChanger';
 import { SitePage } from '../../components/SitePage';
+import { usePersistDyDefaultsStore } from '../../store';
 
 export const CategoryPage: React.FC = () => {
   const type = 'CATEGORY';
 
-  const { categoryContext } = useDyDefaultsContext();
+  const { categoryContext } = usePersistDyDefaultsStore();
   useEffect(() => {
     setDYContext(type, parseContext(categoryContext));
   });
 
   return (
     <SitePage>
-      <RecContextChanger type='CATEGORY' />
+      <RecommendationContextChanger type='CATEGORY' />
       <h4>Category campaign</h4>
       <div
         className='dy campaign category'
