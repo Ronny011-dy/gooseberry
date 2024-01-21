@@ -1,15 +1,5 @@
 import ky from 'ky';
 
-// const api = ky.extend({
-//   hooks: {
-//     beforeRequest: [
-//       (request) => {
-//         request.headers.set('DY-API-Key', '7a0fd330b12068d6e2348167297a3c03d96fcb57e76cd771c5bbdd78e3eea8fb');
-//       }
-//     ]
-//   }
-// });
-
 export const chooseVariation = async (scriptId: string, selector: string, apiKey: string) => {
   const isEU = scriptId && scriptId[0] !== '8';
   return await ky
