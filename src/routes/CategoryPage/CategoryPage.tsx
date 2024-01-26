@@ -7,10 +7,9 @@ import { usePersistDyDefaultsStore } from '../../store';
 
 export const CategoryPage: React.FC = () => {
   const type = 'CATEGORY';
-
-  const { categoryContext } = usePersistDyDefaultsStore();
+  const { lng, categoryContext } = usePersistDyDefaultsStore();
   useEffect(() => {
-    setDYContext(type, parseContext(categoryContext));
+    setDYContext(type, parseContext(categoryContext), lng);
   });
 
   return (

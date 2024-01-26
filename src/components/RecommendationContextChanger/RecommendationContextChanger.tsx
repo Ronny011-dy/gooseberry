@@ -1,10 +1,10 @@
 import { GearIcon } from '@radix-ui/react-icons';
-import { Button, TextField } from '@radix-ui/themes';
+import { Button, TextField, Tooltip } from '@radix-ui/themes';
 import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
 import { PageContext, setDYContext } from '../../utils';
-import { Root } from './RecommendationContextChanger.styles';
+import { Root, StyledInfoIcon } from './RecommendationContextChanger.styles';
 
 interface Props {
   type: PageContext;
@@ -53,6 +53,12 @@ export const RecommendationContextChanger: React.FC<Props> = ({ type }) => {
       >
         Change
       </Button>
+      <Tooltip
+        content='The values should match the product feed'
+        delayDuration={0}
+      >
+        <StyledInfoIcon />
+      </Tooltip>
     </Root>
   );
 };

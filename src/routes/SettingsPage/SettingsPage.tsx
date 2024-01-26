@@ -13,18 +13,21 @@ import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store
 
 export const SettingsPage: React.FC = () => {
   const type = 'OTHER';
+  const { scriptId, categoryContext, productContext, setScriptId, setCategoryContext, setProductContext, lng, setLng } =
+    usePersistDyDefaultsStore();
   useEffect(() => {
-    setDYContext(type);
+    setDYContext(type, undefined, lng);
   });
 
-  const { scriptId, categoryContext, productContext, setScriptId, setCategoryContext, setProductContext } =
-    usePersistDyDefaultsStore();
   const { apiKey, selector, setApiKey, setSelector } = usePersistApiValuesStore();
 
   const handleStoreReset = async () => {
     setScriptId('9880233');
     setCategoryContext('Gin');
     setProductContext('3853');
+    setApiKey('7a0fd330b12068d6e2348167297a3c03d96fcb57e76cd771c5bbdd78e3eea8fb');
+    setSelector('api-rec');
+    setLng('en_US');
     toast.success('Values reset to default');
   };
 
@@ -44,7 +47,7 @@ export const SettingsPage: React.FC = () => {
       <StyledChangersWrapper>
         <DyDefaultsChanger
           defaultValue={scriptId}
-          placeholder='script id'
+          placeholder='section id'
           setDefaultValue={setScriptId}
         />
         <DyDefaultsChanger
@@ -66,6 +69,11 @@ export const SettingsPage: React.FC = () => {
           defaultValue={selector}
           placeholder='api selector'
           setDefaultValue={setSelector}
+        />
+        <DyDefaultsChanger
+          defaultValue={lng}
+          placeholder='locale'
+          setDefaultValue={setLng}
         />
       </StyledChangersWrapper>
       <ChangeColorMode />

@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { Root, StyledEllipsis } from './DyDefaultsChanger.styles';
 import { appendScript } from '../../../../utils';
 
-type Placeholders = 'script id' | 'category data' | 'product data' | 'api key' | 'api selector';
+type Placeholders = 'section id' | 'category data' | 'product data' | 'api key' | 'api selector' | 'locale';
 
 type InputParams = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -24,7 +24,7 @@ interface Props {
 export const DyDefaultsChanger: React.FC<Props> = ({ defaultValue, setDefaultValue, placeholder }) => {
   const ref = useRef<HTMLInputElement>(null);
   const [value, setInputValue] = useState('');
-  const isContextOrSelector = placeholder !== 'script id';
+  const isContextOrSelector = placeholder !== 'section id';
 
   const onScriptSave = () => {
     const scriptValidity = ref.current && ref.current.reportValidity();
@@ -45,7 +45,7 @@ export const DyDefaultsChanger: React.FC<Props> = ({ defaultValue, setDefaultVal
   };
 
   const onClick = () => {
-    if (placeholder === 'script id') {
+    if (placeholder === 'section id') {
       onScriptSave();
     } else {
       onContextAndSelectorSave();
@@ -68,7 +68,7 @@ export const DyDefaultsChanger: React.FC<Props> = ({ defaultValue, setDefaultVal
     value
   };
 
-  if (placeholder === 'script id') inputParams['pattern'] = '^[89][0-9]{6}$';
+  if (placeholder === 'section id') inputParams['pattern'] = '^[89][0-9]{6}$';
 
   return (
     <Root>

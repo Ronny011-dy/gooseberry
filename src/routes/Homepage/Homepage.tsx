@@ -3,11 +3,13 @@ import { useEffect } from 'react';
 import { Carousel } from '../../components/Carousel';
 import { setDYContext } from '../../utils';
 import { SitePage } from '../../components/SitePage';
+import { usePersistDyDefaultsStore } from '../../store';
 
 export const HomePage: React.FC = () => {
   const type = 'HOMEPAGE';
+  const { lng } = usePersistDyDefaultsStore();
   useEffect(() => {
-    setDYContext(type);
+    setDYContext(type, undefined, lng);
   });
 
   return (

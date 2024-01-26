@@ -7,9 +7,9 @@ import { usePersistDyDefaultsStore } from '../../store';
 
 export const ProductPage: React.FC = () => {
   const type = 'PRODUCT';
-  const { productContext } = usePersistDyDefaultsStore();
+  const { lng, productContext } = usePersistDyDefaultsStore();
   useEffect(() => {
-    setDYContext(type, parseContext(productContext));
+    setDYContext(type, parseContext(productContext), lng);
   });
 
   return (

@@ -2,12 +2,22 @@
 import { useQuery } from '@tanstack/react-query';
 import { ThreeDots } from 'react-loader-spinner';
 import { useTheme } from 'styled-components';
+import { Code } from '@radix-ui/themes';
 
-import { Root, StyledLoadingWrapper, StyledSlot, StyledWrapper } from './Carousel.styles';
+import {
+  Root,
+  StyledErrorHeader,
+  StyledLoadingWrapper,
+  StyledScrollArea,
+  StyledSlot,
+  StyledWrapper
+} from './Carousel.styles';
 // import { TriangleLeftIcon, TriangleRightIcon } from '@radix-ui/react-icons';
 import { SlotCard } from './components/SlotCard';
 import { Slot, chooseVariation } from '../../api';
 import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store';
+
+const formatJSON = (payload: string) => JSON.stringify(payload, null, 2);
 
 export const Carousel: React.FC = () => {
   const theme = useTheme();
@@ -18,6 +28,7 @@ export const Carousel: React.FC = () => {
   const { status, data, isLoading, error } = useQuery<any>({
     queryFn: () => chooseVariation(scriptId, selector, apiKey),
     queryKey: ['slots'],
+    retry: false,
     staleTime: 5 * 1000 * 60
   });
   if (isLoading)
@@ -26,10 +37,24 @@ export const Carousel: React.FC = () => {
         <ThreeDots color={theme.colors.primary} />
       </StyledLoadingWrapper>
     );
-  if (status === 'error') return <div>{error.message}</div>;
+  if (status === 'error') return <StyledErrorHeader>{error.message}</StyledErrorHeader>;
   if (status === 'success') {
-    // take only 4 products
-    productsArr = data.choices[0].variations[0].payload.data.slots.slice(0, 4);
+    try {
+      // take only 4 products
+      productsArr = data.choices[0].variations[0].payload.data.slots.slice(0, 4);
+    } catch (error) {
+      return (
+        <StyledScrollArea
+          scrollbars='vertical'
+          type='always'
+        >
+          <StyledErrorHeader>
+            {`${formatJSON(data.explain).match(/"(found|valid)": false/)}`?.slice(0, -6)}
+          </StyledErrorHeader>
+          <Code variant='ghost'>{formatJSON(data.explain)}</Code>
+        </StyledScrollArea>
+      );
+    }
     return (
       <Root>
         {data.choices[0].variations[0].payload.data.custom.title}

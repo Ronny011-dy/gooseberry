@@ -5,14 +5,16 @@ import { StyledAddToCart, StyledAddToCartButton } from './CartPage.styles';
 import { setDYContext, eventAddToCart } from '../../utils';
 import { ProductCart } from './components/ProductCart';
 import { SitePage } from '../../components/SitePage';
+import { usePersistDyDefaultsStore } from '../../store';
 
 export const CartPage: React.FC = () => {
   const type = 'CART';
+  const { lng } = usePersistDyDefaultsStore();
   const [cartData, setCartData] = useState<string[]>([]);
   const [skuToAdd, setSKUToAdd] = useState('');
 
   useEffect(() => {
-    setDYContext(type, cartData);
+    setDYContext(type, cartData, lng);
   }, [cartData]);
 
   const skuInputRef = useRef<HTMLInputElement>(null);
