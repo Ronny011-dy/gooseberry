@@ -1,13 +1,14 @@
 import { Button } from '@radix-ui/themes';
 
-import { Root, StyledBugIcon, StyledLink } from './Footer.styles';
+import { Root, StyledLink } from './Footer.styles';
+import { Bug } from '../../assets';
 
 const Footer: React.FC = () => {
   return (
     <Root>
       <StyledLink to={'https://docs.google.com/forms/d/1UdISUcsT456cvHVdajlIt91m5FgTAEaTX47KNenvasg'}>
         <Button variant='outline'>
-          <StyledBugIcon />
+          <Bug />
           Report bug
         </Button>
       </StyledLink>
