@@ -1,58 +1,52 @@
-import { GearIcon } from '@radix-ui/react-icons';
-import { Button, TextField, Tooltip } from '@radix-ui/themes';
+import { Tooltip } from '@radix-ui/themes';
 import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
-import { PageContext, setDYContext } from '../../utils';
+import { setDYContext } from '../../utils';
 import { Root, StyledInfoIcon } from './RecommendationContextChanger.styles';
+import { InputWithButton, InputWithButtonProps } from '../InputWithButton/InputWithButton';
+import { usePersistDyDefaultsStore } from '../../store';
+import { PageContext } from '../../types';
 
 interface Props {
   type: PageContext;
 }
 
 export const RecommendationContextChanger: React.FC<Props> = ({ type }) => {
+  const { lng } = usePersistDyDefaultsStore();
   const [contextData, setContextData] = useState('');
-  const textInputRef = useRef<HTMLInputElement>(null);
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setContextData(e.target.value);
   };
 
-  const handleClick = () => {
-    contextData && setDYContext(type, [contextData]);
-    toast.success(`Context changed to ${JSON.stringify((window as any).DY.recommendationContext)}`);
+  const onClick = () => {
+    contextData && setDYContext(type, [contextData], lng);
+    toast.success(`Context changed to ${JSON.stringify(window.DY.recommendationContext)}`);
     setContextData('');
   };
 
-  const handleTextInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      handleClick();
-      textInputRef.current?.blur();
+      onClick();
+      inputRef.current?.blur();
     }
   };
+
+  const inputWithButtonParams: InputWithButtonProps = {
+    buttonCallback: onClick,
+    buttonLabel: 'Change',
+    inputRef,
+    onChange,
+    onKeyDown,
+    placeholder: 'Enter context data',
+    value: contextData
+  };
+
   return (
     <Root>
-      <TextField.Root>
-        <TextField.Slot>
-          <GearIcon
-            height='16'
-            width='16'
-          />
-        </TextField.Slot>
-        <TextField.Input
-          placeholder='Enter context data to change'
-          ref={textInputRef}
-          value={contextData}
-          onChange={handleChange}
-          onKeyDown={handleTextInputKeyDown}
-        />
-      </TextField.Root>
-      <Button
-        variant='outline'
-        onClick={handleClick}
-      >
-        Change
-      </Button>
+      <InputWithButton {...inputWithButtonParams} />
       <Tooltip
         content='The values should match the product feed'
         delayDuration={0}

@@ -1,10 +1,12 @@
-import { Button } from '@radix-ui/themes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledButton = styled(Button)``;
+import Bug from '../../assets/cil-bug.svg?react';
 
-export const StyledLink = styled(Link)``;
+export const StyledLink = styled(Link)`
+  align-self: center;
+  margin-left: 35px;
+`;
 
 export const Root = styled.footer`
   position: absolute;
@@ -21,8 +23,10 @@ export const Root = styled.footer`
     color: ${(props) => props.theme.colors.fg};
     margin-right: 15px;
   }
-  ${StyledLink} {
-    align-self: center;
-    margin-left: 15px;
-  }
+`;
+
+export const StyledBugIcon = styled(Bug)`
+  height: 15px;
+  width: 15px;
+  fill: var(--accent-a11);
 `;

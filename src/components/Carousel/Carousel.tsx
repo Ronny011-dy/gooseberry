@@ -16,6 +16,7 @@ import {
 import { SlotCard } from './components/SlotCard';
 import { Slot, chooseVariation } from '../../api';
 import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store';
+import { ChooseResponse } from '../../types/types';
 
 const formatJSON = (payload: string) => JSON.stringify(payload, null, 2);
 
@@ -24,8 +25,8 @@ export const Carousel: React.FC = () => {
   let productsArr = [];
   const { scriptId } = usePersistDyDefaultsStore();
   const { selector, apiKey } = usePersistApiValuesStore();
-  // the typescript Jiujitsu needed to replace 'any' with an actual type is not worth it for now
-  const { status, data, isLoading, error } = useQuery<any>({
+
+  const { status, data, isLoading, error } = useQuery<ChooseResponse>({
     queryFn: () => chooseVariation(scriptId, selector, apiKey),
     queryKey: ['slots'],
     retry: false,

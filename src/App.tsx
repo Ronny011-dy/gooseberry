@@ -11,11 +11,18 @@ import { GlobalStyle, Root } from './App.styles';
 import { appendScript, getOSPreference } from './utils';
 import { SiteRoutes } from './routes';
 import { usePersistColorModeStore, usePersistDyDefaultsStore } from './store';
+import { DY } from './types';
+
+declare global {
+  interface Window {
+    DY: DY;
+  }
+}
 
 export const App = () => {
   const { scriptId } = usePersistDyDefaultsStore();
   useEffect(() => {
-    appendScript(scriptId);
+    appendScript(scriptId, true);
   }, []);
   const queryClient = new QueryClient();
   const { colorModeString, shouldOverride } = usePersistColorModeStore();

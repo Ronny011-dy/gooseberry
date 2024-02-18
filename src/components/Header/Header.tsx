@@ -1,14 +1,16 @@
 import { useTheme } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import gooseLogo from '/gooseberry.svg';
 import gooseLogoLight from '/gooseberry_light.svg';
 
-import { Root, StyledButton, StyledLink, StyledLogoLink, StyledLogoWrapper, StyledNavigation } from './Header.styles';
+import { Root, StyledButton, StyledLogoLink, StyledLogoWrapper, StyledNavigation } from './Header.styles';
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
   const theme = useTheme();
+  const pages = ['category', 'product', 'cart', 'settings'];
 
   return (
     <Root>
@@ -22,18 +24,14 @@ const Header: React.FC<HeaderProps> = () => {
         <h1>Gooseberry</h1>
       </StyledLogoLink>
       <StyledNavigation>
-        <StyledLink to={'/category'}>
-          <StyledButton variant='outline'>Category</StyledButton>
-        </StyledLink>
-        <StyledLink to={'/product'}>
-          <StyledButton variant='outline'>Product</StyledButton>
-        </StyledLink>
-        <StyledLink to={'/cart'}>
-          <StyledButton variant='outline'>Cart</StyledButton>
-        </StyledLink>
-        <StyledLink to={'/settings'}>
-          <StyledButton variant='outline'>Settings</StyledButton>
-        </StyledLink>{' '}
+        {pages.map((page, index) => (
+          <Link
+            key={index}
+            to={`/${page}`}
+          >
+            <StyledButton variant='outline'>{`${page[0].toUpperCase()}${page.slice(1)}`}</StyledButton>
+          </Link>
+        ))}
       </StyledNavigation>
     </Root>
   );

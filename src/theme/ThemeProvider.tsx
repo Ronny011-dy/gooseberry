@@ -39,7 +39,7 @@ export const ThemeProviderWithModes: React.FC<Props> = ({ children }) => {
   }, [shouldOverride, themeChoice]);
 
   const themeWithExtras = {
-    borderRadius: '5px',
+    borderRadius: '3px',
     colors: theme.colors,
     constantColors: {
       black: 'rgb(30, 30, 30)',

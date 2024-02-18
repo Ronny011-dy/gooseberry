@@ -5,7 +5,7 @@ type productDetails = {
 };
 
 export const eventAddToCart = (skuToAdd: string, cartArr: string[]) => {
-  (window as any).DY.API('event', {
+  window.DY.API('event', {
     name: 'Add to Cart',
     properties: {
       cart: convertToDetailedArr(cartArr.concat(skuToAdd)),
@@ -19,7 +19,7 @@ export const eventAddToCart = (skuToAdd: string, cartArr: string[]) => {
 
 export const eventRemoveFromCart = (skuToRemove: string, cartArr: string[]) => {
   const lastIndexOfSku = cartArr.lastIndexOf(skuToRemove);
-  (window as any).DY.API('event', {
+  window.DY.API('event', {
     name: 'Remove from Cart',
     properties: {
       cart: convertToDetailedArr(cartArr.toSpliced(lastIndexOfSku, 1)),
@@ -32,7 +32,7 @@ export const eventRemoveFromCart = (skuToRemove: string, cartArr: string[]) => {
 };
 
 export const eventPurchase = (cartArr: string[]) => {
-  (window as any).DY.API('event', {
+  window.DY.API('event', {
     name: 'Purchase',
     properties: {
       cart: cartArr,

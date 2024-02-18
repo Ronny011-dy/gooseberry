@@ -4,7 +4,7 @@ export const Root = styled.div`
   border: solid 1px ${(props) => props.theme.colors.primary};
   border-radius: 3px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
   padding: 10px;

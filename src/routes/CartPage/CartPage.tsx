@@ -1,17 +1,16 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { TextField } from '@radix-ui/themes';
 
-import { StyledAddToCart, StyledAddToCartButton } from './CartPage.styles';
 import { setDYContext, eventAddToCart } from '../../utils';
 import { ProductCart } from './components/ProductCart';
 import { SitePage } from '../../components/SitePage';
 import { usePersistDyDefaultsStore } from '../../store';
+import { InputWithButton, InputWithButtonProps } from '../../components/InputWithButton/InputWithButton';
 
 export const CartPage: React.FC = () => {
   const type = 'CART';
   const { lng } = usePersistDyDefaultsStore();
   const [cartData, setCartData] = useState<string[]>([]);
-  const [skuToAdd, setSKUToAdd] = useState('');
+  const [skuToAdd, setSkuToAdd] = useState('');
 
   useEffect(() => {
     setDYContext(type, cartData, lng);
@@ -26,20 +25,30 @@ export const CartPage: React.FC = () => {
 
   const productCartProps = { addProduct, cartData, setCartData };
 
-  const handleSKUInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSKUToAdd(e.target.value);
+  const onSkuInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSkuToAdd(e.target.value);
   };
 
-  const handleAddToCart = () => {
+  const onAddToCart = () => {
     skuToAdd && addProduct(skuToAdd);
-    setSKUToAdd('');
+    setSkuToAdd('');
   };
 
-  const handleSKUInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const onSkuInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      handleAddToCart();
+      onAddToCart();
     }
+  };
+
+  const inputWithButtonParams: InputWithButtonProps = {
+    buttonCallback: onAddToCart,
+    buttonLabel: 'Add to cart',
+    inputRef: skuInputRef,
+    onChange: onSkuInputChange,
+    onKeyDown: onSkuInputKeyDown,
+    placeholder: 'SKU',
+    value: skuToAdd
   };
 
   return (
@@ -51,21 +60,7 @@ export const CartPage: React.FC = () => {
       >
         <p>Insert campaign here</p>
       </div>
-      <StyledAddToCart>
-        <TextField.Input
-          placeholder='SKU'
-          ref={skuInputRef}
-          value={skuToAdd}
-          onChange={handleSKUInputChange}
-          onKeyDown={handleSKUInputKeyDown}
-        />
-        <StyledAddToCartButton
-          variant='outline'
-          onClick={handleAddToCart}
-        >
-          Add to cart
-        </StyledAddToCartButton>
-      </StyledAddToCart>
+      <InputWithButton {...inputWithButtonParams} />
       <ProductCart {...productCartProps} />
     </SitePage>
   );

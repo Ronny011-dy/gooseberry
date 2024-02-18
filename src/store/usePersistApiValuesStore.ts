@@ -16,7 +16,7 @@ type Actions = {
 export const usePersistApiValuesStore = create<State & Actions>()(
   persist(
     (set) => ({
-      apiKey: '7a0fd330b12068d6e2348167297a3c03d96fcb57e76cd771c5bbdd78e3eea8fb',
+      apiKey: 'pleaseInsertYourKey',
       selector: 'api-rec',
       setApiKey: (apiKey) => set(() => ({ apiKey })),
       setSelector: (selector) => set(() => ({ selector }))

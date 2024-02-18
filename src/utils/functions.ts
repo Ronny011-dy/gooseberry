@@ -1,6 +1,6 @@
 import { ColorMode } from '../store';
 
-export const appendScript = (id: string) => {
+export const appendScript = (id: string, consent: boolean = false) => {
   const prevDy = document.getElementById('dy');
   const prevSt = document.getElementById('st');
   prevDy && prevDy.remove();
@@ -14,6 +14,11 @@ export const appendScript = (id: string) => {
   static_script.id = 'st';
   document.head.appendChild(dynamic_script);
   document.head.appendChild(static_script);
+  if (consent) {
+    const activeConsent = document.createElement('script');
+    activeConsent.textContent = 'DY.userActiveConsent = { accepted: true }';
+    document.head.appendChild(activeConsent);
+  }
 };
 
 export const parseContext = (data: string) =>

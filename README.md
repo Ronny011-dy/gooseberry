@@ -2,29 +2,32 @@
 
 ![](https://img.shields.io/badge/-vite-9499FF?logo=vite&logoColor=white) ![](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white) ![](https://img.shields.io/badge/-TypeScript-235A97?logo=typescript&logoColor=white)
 
-This project was created so that DY support would have their own fully SPA, multi-context platform to play around with, debug, and troubleshoot issues that are only reproducible in real single page applications.
+This project was created so that DY Customer Support would have their own fully SPA, multi-context platform to play around with, debug, and troubleshoot issues that are only reproducible in real single page applications.
 
 Site URL - [Gooseberry](https://ronny011-dy.github.io/gooseberry/)
 
-The idea of this project is to have a sandbox that is more flexible than our Tumblr blogs, and can be used with XP client-side API. SSAPI will need some backend code, not impossible but it increases the complexity of the app.
+The idea of this project is to have a sandbox that is more flexible than standard Tumblr blogs, and can be used with XP client-side API.
+
+- SSAPI will need some backend code, not impossible but it increases the complexity of the app.
 
 This project can also help with learning some Javascript, React and git.
 If you want to create your own SPA sandbox, check [Initial project build](#initial-project-build).
 
-### Features
+## Features
 
-- Seperate pages for each DY page context.
+- Separate pages for each DY page context.
 - Web campaign insertion slots for easy script troubleshooting.
 - Fully SPA transitions without page reload.
 - XP Client Side API.
 - Context changers for quick and dirty recommendationsContext changes.
 - Default global value settings for setting the following defaults:
   - Section id
-  - API key
   - Category context
   - PDP context
-- Bug reporting form.
-- Fully operating cart page with A2C/Remove/Purcahse events. Current cart state is sent in each event for troubleshooting reconnect use cases.
+  - API key
+  - api selector
+  - context lng
+- Cart page with DPX events
 - Thorough documentation :P
 
 ---
@@ -69,7 +72,7 @@ These are the initial steps taken to create this project, and host it on GitHub 
    npm i
 ```
 
-1. Initialize and link the repo, then build the app using the following commands:
+3. Initialize and link the repo, then build the app using the following commands:
 
 ```console
    git init
@@ -125,20 +128,7 @@ Lastly, use `npm run deploy` after building.
    npm install react-router-dom
 ```
 
-For an easier time building your site in React, it's recommended (but not necessary) to install:
+For an easier time building your own sandbox in React, it's recommended to install:
 
 - A CSS framework like styled-components or [Tailwind](https://tailwindcss.com/).
 - A UI library like [MUI](https://mui.com/) or radixUI.
-- Gooseberry is using the following packages:
-  - [Vite](https://vitejs.dev/)
-  - [styled-components](https://styled-components.com/)
-  - [radixUI](https://www.radix-ui.com/)
-  - [radixUI Icons](https://www.radix-ui.com/icons)
-  - [react-hot-toast](https://react-hot-toast.com/)
-  - [ky](https://github.com/sindresorhus/ky)
-  - [react query](https://tanstack.com/query/latest)
-
-### Stuff to add
-
-- [ ] XP API key and selector settings
-- [ ] Suggested feedback

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Root = styled.header`
+  container-type: inline-size;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -45,19 +46,14 @@ export const StyledNavigation = styled.div`
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
-  a {
-    height: fit-content;
-  }
-  button {
-    font-weight: bold;
-    width: 11ch;
-  }
-`;
-
-export const StyledLink = styled(Link)`
-  width: fit-content;
 `;
 
 export const StyledButton = styled(Button)`
   color: ${(props) => props.theme.constantColors.black};
+  font-weight: bold;
+  padding: 0 12px 0 12px;
+  min-width: 6.5cqi;
+  @container (width < 1010px) {
+    padding: 0 5px 0 5px;
+  }
 `;
