@@ -531,7 +531,6 @@ to {
   border: 1px solid ${e=>e.theme.colors.fga};
   display: block;
   box-sizing: border-box;
-  z-index: 1;
   &:focus {
     border: 1px solid var(--accent-8);
   }
