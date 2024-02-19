@@ -28,6 +28,7 @@ If you want to create your own SPA sandbox, check [Initial project build](#initi
   - api selector
   - context lng
 - Cart page with DPX events
+- User separation - no more worrying about other people fiddling with your sandbox
 - Thorough documentation :P
 
 ---

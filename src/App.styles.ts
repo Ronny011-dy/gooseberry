@@ -2,10 +2,9 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 .dy.campaign{
-  max-width: 50vw;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  color: ${(props) => props.theme.colors.fg} !important;
   z-index: 10;
 }`;
 
