@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { setDYContext } from 'utils';
 import { SitePage } from 'components/SitePage';
 import { usePersistApiValuesStore, usePersistDyDefaultsStore } from 'store';
+import { CampaignSlot } from 'components/CampaignSlot';
 
 import { StyledButton, StyledTitle } from './SettingsPage.styles';
 import { GooseDetails } from './components/GooseDetails';
@@ -61,13 +62,10 @@ export const SettingsPage: React.FC = () => {
       <Redirects scriptId={scriptId} />
       <DyDefaultsChangerList settingsArr={settingsArr} />
       <ChangeColorMode />
-      <h4>OTHER campaign</h4>
-      <div
+      <CampaignSlot
         className='dy campaign other'
         id='other-campaign'
-      >
-        <p>Insert campaign here</p>
-      </div>
+      />
       <GooseDetails />
     </SitePage>
   );

@@ -13,9 +13,6 @@ export const HomePage: React.FC = () => {
     setDYContext(type, undefined, lng);
   });
 
-  const easterEgg =
-    'Also called Caped Gooseberry, or Peruvian Groundcherry, the gooseberry is both the tastiest berry known to man,and an amazing support SPA sandbox';
-
   return (
     <SitePage>
       <CampaignSlot
