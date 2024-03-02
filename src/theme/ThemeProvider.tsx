@@ -1,10 +1,11 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import { ColorMode, usePersistColorModeStore } from 'store';
+import { getOSPreference } from 'utils';
+
 import { lightTheme } from './lightTheme';
 import { darkTheme } from './darkTheme';
-import { ColorMode, usePersistColorModeStore } from '../store';
-import { getOSPreference } from '../utils';
 
 export type ThemeMode = {
   colors: {

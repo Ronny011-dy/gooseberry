@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 
-import { setDYContext, parseContext } from '../../utils';
-import { RecommendationContextChanger } from '../../components/RecommendationContextChanger';
-import { SitePage } from '../../components/SitePage';
-import { usePersistDyDefaultsStore } from '../../store';
+import { setDYContext, parseContext } from 'utils';
+import { RecommendationContextChanger } from 'components/RecommendationContextChanger';
+import { SitePage } from 'components/SitePage';
+import { usePersistDyDefaultsStore } from 'store';
+import { CampaignSlot } from 'components/CampaignSlot';
 
 export const CategoryPage: React.FC = () => {
   const type = 'CATEGORY';
@@ -15,13 +16,10 @@ export const CategoryPage: React.FC = () => {
   return (
     <SitePage>
       <RecommendationContextChanger type='CATEGORY' />
-      <h4>Category campaign</h4>
-      <div
+      <CampaignSlot
         className='dy campaign category'
         id='category-campaign'
-      >
-        <p>Insert campaign here</p>
-      </div>
+      />
     </SitePage>
   );
 };

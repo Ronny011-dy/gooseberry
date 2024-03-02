@@ -1,7 +1,8 @@
 import { Button } from '@radix-ui/themes';
 
+import { Bug } from 'assets';
+
 import { Root, StyledLink } from './Footer.styles';
-import { Bug } from '../../assets';
 
 const Footer: React.FC = () => {
   return (

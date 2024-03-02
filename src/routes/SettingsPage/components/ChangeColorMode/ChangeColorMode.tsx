@@ -1,8 +1,9 @@
 import { Checkbox, Switch } from '@radix-ui/themes';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 
+import { usePersistColorModeStore } from 'store';
+
 import { Root, StyledSwitchWrapper } from './ChangeColorMode.styles';
-import { usePersistColorModeStore } from '../../../../store';
 
 export const ChangeColorMode: React.FC = () => {
   const onCheck = () => {

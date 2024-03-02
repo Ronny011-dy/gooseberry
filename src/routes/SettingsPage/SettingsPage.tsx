@@ -3,12 +3,13 @@ import { ResetIcon } from '@radix-ui/react-icons';
 import { Tooltip } from '@radix-ui/themes';
 import toast from 'react-hot-toast';
 
+import { setDYContext } from 'utils';
+import { SitePage } from 'components/SitePage';
+import { usePersistApiValuesStore, usePersistDyDefaultsStore } from 'store';
+
 import { StyledButton, StyledTitle } from './SettingsPage.styles';
-import { setDYContext } from '../../utils';
 import { GooseDetails } from './components/GooseDetails';
 import { ChangeColorMode } from './components/ChangeColorMode';
-import { SitePage } from '../../components/SitePage';
-import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store';
 import { Redirects } from './components/Redirects/Redirects';
 import { DyDefaultsChangerProps } from './components/DyDefaultsChanger/DyDefaultsChanger';
 import { DyDefaultsChangerList } from './components/DyDefaultsChangerList/DyDefaultsChangerList';

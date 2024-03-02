@@ -7,5 +7,16 @@ export default defineConfig({
   build: {
     target: 'ESNext'
   },
-  plugins: [react()]
+  plugins: [react()],
+  resolve: {
+    alias: {
+      api: '/src/api',
+      assets: '/src/assets',
+      components: '/src/components',
+      routes: '/src/routes',
+      store: '/src/store',
+      types: '/src/types',
+      utils: '/src/utils'
+    }
+  }
 });

@@ -1,4 +1,4 @@
-import type { PageContext } from '../types';
+import type { PageContext } from 'types';
 
 export const setDYContext = (type: PageContext, data?: string[], lng?: string): void => {
   window.DY = window.DY || {};

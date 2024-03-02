@@ -5,11 +5,12 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Header } from 'components/Header';
+import { Footer } from 'components/Footer';
+
+import { SiteRoutes } from './routes';
 import { GlobalStyle, Root } from './App.styles';
 import { appendScript, getOSPreference } from './utils';
-import { SiteRoutes } from './routes';
 import { usePersistColorModeStore, usePersistDyDefaultsStore } from './store';
 import { DY } from './types';
 
@@ -26,12 +27,13 @@ export const App = () => {
   }, []);
   const queryClient = new QueryClient();
   const { colorModeString, shouldOverride } = usePersistColorModeStore();
+  const getAppearance = shouldOverride ? colorModeString : getOSPreference();
 
   return (
     <HashRouter basename='/'>
       <RadixUITheme
         accentColor='yellow'
-        appearance={shouldOverride ? colorModeString : getOSPreference()}
+        appearance={getAppearance}
         panelBackground='translucent'
         radius='small'
       >

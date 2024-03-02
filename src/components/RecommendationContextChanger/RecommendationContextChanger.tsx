@@ -2,11 +2,12 @@ import { Tooltip } from '@radix-ui/themes';
 import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
-import { setDYContext } from '../../utils';
+import { usePersistDyDefaultsStore } from 'store';
+import type { PageContext } from 'types';
+import { setDYContext } from 'utils';
+import { InputWithButton, InputWithButtonProps } from 'components/InputWithButton';
+
 import { Root, StyledInfoIcon } from './RecommendationContextChanger.styles';
-import { InputWithButton, InputWithButtonProps } from '../InputWithButton/InputWithButton';
-import { usePersistDyDefaultsStore } from '../../store';
-import { PageContext } from '../../types';
 
 interface Props {
   type: PageContext;

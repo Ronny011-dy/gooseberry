@@ -1,11 +1,7 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { HomePage } from '../../Homepage';
-import { CategoryPage } from '../../CategoryPage';
-import { ProductPage } from '../../ProductPage';
-import { CartPage } from '../../CartPage';
-import { SettingsPage } from '../../SettingsPage';
+import { HomePage, CategoryPage, ProductPage, CartPage, SettingsPage } from 'routes';
 
 interface Props {}
 

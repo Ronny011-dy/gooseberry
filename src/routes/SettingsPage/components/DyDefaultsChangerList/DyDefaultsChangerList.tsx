@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { DyDefaultsChanger, DyDefaultsChangerProps } from '../DyDefaultsChanger/DyDefaultsChanger';
+import { DyDefaultsChanger, type DyDefaultsChangerProps } from '../DyDefaultsChanger';
 import { Root } from './DyDefaultsChangerList.styles';
 
 interface Props {

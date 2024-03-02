@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 
-import { RecommendationContextChanger } from '../../components/RecommendationContextChanger';
-import { setDYContext, parseContext } from '../../utils';
-import { SitePage } from '../../components/SitePage';
-import { usePersistDyDefaultsStore } from '../../store';
+import { RecommendationContextChanger } from 'components/RecommendationContextChanger';
+import { setDYContext, parseContext } from 'utils';
+import { SitePage } from 'components/SitePage';
+import { usePersistDyDefaultsStore } from 'store';
+import { CampaignSlot } from 'components/CampaignSlot';
 
 export const ProductPage: React.FC = () => {
   const type = 'PRODUCT';
@@ -15,13 +16,10 @@ export const ProductPage: React.FC = () => {
   return (
     <SitePage>
       <RecommendationContextChanger type='PRODUCT' />
-      <h4>Product campaign</h4>
-      <div
+      <CampaignSlot
         className='dy campaign product'
         id='product-campaign'
-      >
-        <p>Insert campaign here</p>
-      </div>
+      />
     </SitePage>
   );
 };

@@ -1,0 +1,1 @@
+export { CampaignSlot } from './CampaignSlot';

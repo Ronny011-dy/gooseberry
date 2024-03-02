@@ -1,10 +1,12 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
-import { setDYContext, eventAddToCart } from '../../utils';
+import { setDYContext, eventAddToCart } from 'utils';
+import { usePersistDyDefaultsStore } from 'store';
+import { CampaignSlot } from 'components/CampaignSlot';
+import { SitePage } from 'components/SitePage';
+import { InputWithButton, InputWithButtonProps } from 'components/InputWithButton';
+
 import { ProductCart } from './components/ProductCart';
-import { SitePage } from '../../components/SitePage';
-import { usePersistDyDefaultsStore } from '../../store';
-import { InputWithButton, InputWithButtonProps } from '../../components/InputWithButton/InputWithButton';
 
 export const CartPage: React.FC = () => {
   const type = 'CART';
@@ -53,13 +55,11 @@ export const CartPage: React.FC = () => {
 
   return (
     <SitePage>
-      <h4>Cart campaign</h4>
-      <div
+      <CampaignSlot
+        bottomMargin
         className='dy campaign cart'
         id='cart-campaign'
-      >
-        <p>Insert campaign here</p>
-      </div>
+      />
       <InputWithButton {...inputWithButtonParams} />
       <ProductCart {...productCartProps} />
     </SitePage>

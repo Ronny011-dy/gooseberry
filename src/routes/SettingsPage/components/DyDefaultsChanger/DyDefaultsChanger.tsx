@@ -1,10 +1,10 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
+import { appendScript } from 'utils';
+import { InputWithButton, type InputWithButtonProps } from 'components/InputWithButton/';
+
 import { Root, StyledEllipsis } from './DyDefaultsChanger.styles';
-import { appendScript } from '../../../../utils';
-import { InputWithButton } from '../../../../components/InputWithButton/InputWithButton';
-import type { InputWithButtonProps } from '../../../../components/InputWithButton/InputWithButton';
 
 type Placeholders = 'section id' | 'category data' | 'product data' | 'api key' | 'api selector' | 'locale';
 

@@ -4,6 +4,10 @@ import { ThreeDots } from 'react-loader-spinner';
 import { useTheme } from 'styled-components';
 import { Code } from '@radix-ui/themes';
 
+import { Slot, chooseVariation } from 'api';
+import { usePersistApiValuesStore, usePersistDyDefaultsStore } from 'store';
+import type { ChooseResponse } from 'types';
+
 import {
   Root,
   StyledErrorHeader,
@@ -14,9 +18,6 @@ import {
 } from './Carousel.styles';
 // import { TriangleLeftIcon, TriangleRightIcon } from '@radix-ui/react-icons';
 import { SlotCard } from './components/SlotCard';
-import { Slot, chooseVariation } from '../../api';
-import { usePersistApiValuesStore, usePersistDyDefaultsStore } from '../../store';
-import { ChooseResponse } from '../../types/types';
 
 const formatJSON = (payload: string) => JSON.stringify(payload, null, 2);
 

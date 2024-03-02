@@ -1,6 +1,6 @@
 import ky from 'ky';
 
-import { ChooseResponse } from '../types/types';
+import type { ChooseResponse } from 'types/types';
 
 export const chooseVariation = async (scriptId: string, selector: string, apiKey: string): Promise<ChooseResponse> => {
   const isEU = scriptId && scriptId[0] !== '8';
