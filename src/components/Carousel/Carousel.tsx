@@ -5,7 +5,7 @@ import { useTheme } from 'styled-components';
 import { Code } from '@radix-ui/themes';
 
 import { Slot, chooseVariation } from 'api';
-import { usePersistApiValuesStore, usePersistDyDefaultsStore } from 'store';
+import { usePersistApiValuesStore, usePersistDyDefaultsStore, usePersistUserConsentStore } from 'store';
 import type { ChooseResponse } from 'types';
 
 import {
@@ -23,12 +23,13 @@ const formatJSON = (payload: string) => JSON.stringify(payload, null, 2);
 
 export const Carousel: React.FC = () => {
   const theme = useTheme();
+  const { userConsent } = usePersistUserConsentStore();
   let productsArr = [];
   const { scriptId } = usePersistDyDefaultsStore();
   const { selector, apiKey } = usePersistApiValuesStore();
 
   const { status, data, isLoading, error } = useQuery<ChooseResponse>({
-    queryFn: () => chooseVariation(scriptId, selector, apiKey),
+    queryFn: () => chooseVariation(scriptId, selector, apiKey, userConsent),
     queryKey: ['slots'],
     retry: false,
     staleTime: 5 * 1000 * 60

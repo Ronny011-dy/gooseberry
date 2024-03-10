@@ -2,7 +2,12 @@ import ky from 'ky';
 
 import type { ChooseResponse } from 'types/types';
 
-export const chooseVariation = async (scriptId: string, selector: string, apiKey: string): Promise<ChooseResponse> => {
+export const chooseVariation = async (
+  scriptId: string,
+  selector: string,
+  apiKey: string,
+  consent: boolean
+): Promise<ChooseResponse> => {
   const isEU = scriptId && scriptId[0] !== '8';
   return await ky
     .extend({
@@ -33,7 +38,7 @@ export const chooseVariation = async (scriptId: string, selector: string, apiKey
           isImplicitPageview: true
         },
         selector: { names: [selector] },
-        user: { active_consent_accepted: true }
+        user: { active_consent_accepted: consent }
       }
     })
     .json();
