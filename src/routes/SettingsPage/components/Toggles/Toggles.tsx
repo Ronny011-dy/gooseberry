@@ -1,4 +1,3 @@
-import { Checkbox } from '@radix-ui/themes';
 import { CheckIcon, Cross2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'styled-components';
 

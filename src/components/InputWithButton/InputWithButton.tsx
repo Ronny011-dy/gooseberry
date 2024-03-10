@@ -1,4 +1,3 @@
-import { Button } from '@radix-ui/themes';
 import { type FC, type InputHTMLAttributes, ChangeEvent, RefObject, ElementRef } from 'react';
 
 import { Root, StyledButton, StyledInput } from './InputWithButton.styles';
