@@ -1,6 +1,6 @@
-import { Root, StyledLogo, StyledReactLink } from './GooseDetails.styles';
+import { Goose } from 'assets/Goose';
 
-import GooseLogo from '/gooseberry.svg';
+import { Root, StyledLogo, StyledReactLink } from './GooseDetails.styles';
 
 export const GooseDetails: React.FC = () => {
   return (
@@ -9,10 +9,10 @@ export const GooseDetails: React.FC = () => {
         href='https://github.com/DynamicYield/gooseberry'
         target='_blank'
       >
-        <img
-          alt='Vite logo'
+        {/* <img
           src={GooseLogo}
-        />
+        /> */}
+        <Goose />
       </StyledLogo>
       <p>
         Built with{' '}

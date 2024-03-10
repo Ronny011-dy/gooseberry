@@ -1,4 +1,4 @@
-import { Separator } from '@radix-ui/themes';
+import { Button, Separator } from '@radix-ui/themes';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -11,5 +11,9 @@ export const Root = styled.div`
 `;
 
 export const StyledSeparator = styled(Separator)`
-  background-color: var(--accent-a11);
+  background-color: ${(props) => props.theme.colors.primary};
+`;
+
+export const StyledButton = styled(Button)`
+  color: ${(props) => props.theme.colors.primary};
 `;

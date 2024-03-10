@@ -9,6 +9,7 @@ export const Root = styled.div`
 `;
 
 export const StyledEllipsis = styled(Code)`
+  color: ${(props) => props.theme.colors.primary};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,7 +1,7 @@
 import { Button } from '@radix-ui/themes';
 import { type FC, type InputHTMLAttributes, ChangeEvent, RefObject, ElementRef } from 'react';
 
-import { Root, StyledInput } from './InputWithButton.styles';
+import { Root, StyledButton, StyledInput } from './InputWithButton.styles';
 
 export type InputWithButtonProps = Partial<InputHTMLAttributes<HTMLInputElement>> & {
   buttonCallback: () => void;
@@ -47,12 +47,12 @@ export const InputWithButton: FC<InputWithButtonProps> = ({
         onKeyDown={onKeyDown}
         {...restofInputParams}
       />
-      <Button
+      <StyledButton
         variant='outline'
         onClick={onClick}
       >
         {buttonLabel}
-      </Button>
+      </StyledButton>
     </Root>
   );
 };

@@ -13,6 +13,7 @@ export type ThemeMode = {
     bga: string;
     fg: string;
     fga: string;
+    header: string;
     primary: string;
   };
 };

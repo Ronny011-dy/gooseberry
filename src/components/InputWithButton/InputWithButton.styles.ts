@@ -1,3 +1,4 @@
+import { Button } from '@radix-ui/themes';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -33,4 +34,8 @@ export const StyledInput = styled.input`
   &:focus {
     border: 1px solid var(--accent-8);
   }
+`;
+
+export const StyledButton = styled(Button)`
+  color: ${(props) => props.theme.colors.primary};
 `;

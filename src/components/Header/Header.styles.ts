@@ -6,31 +6,27 @@ export const Root = styled.header`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.header};
   width: 100%;
   height: 10vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  border-bottom: 1px solid ${(props) => props.theme.colors.fga};
+  border-bottom: 1px solid ${(props) => props.theme.colors.primary};
 `;
 
-export const StyledLogoWrapper = styled(Button)`
+export const StyledLogoWrapper = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 4vh;
   width: 4vh;
-  img {
-    height: 3vh;
-    width: 3vh;
-  }
 `;
 
 export const StyledLogoLink = styled(Link)`
-  color: ${(props) => props.theme.constantColors.black};
+  color: ${(props) => props.theme.colors.fg};
   padding-left: 30px;
   display: flex;
   flex-direction: row;
@@ -49,7 +45,7 @@ export const StyledNavigation = styled.div`
 `;
 
 export const StyledButton = styled(Button)`
-  color: ${(props) => props.theme.constantColors.black};
+  color: ${(props) => props.theme.colors.fg};
   font-weight: bold;
   &:hover {
     cursor: pointer;
@@ -60,7 +56,7 @@ export const StyledNavigationLink = styled(Link)`
   all: unset;
 `;
 
-export const StyledBadge = styled(Badge)`
+export const StyledConsentBadge = styled(Badge)`
   width: fit-content;
   margin: auto;
 `;

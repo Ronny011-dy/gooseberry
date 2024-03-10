@@ -1,4 +1,4 @@
-import { Separator, Switch } from '@radix-ui/themes';
+import { Checkbox, Separator, Switch } from '@radix-ui/themes';
 import styled, { css } from 'styled-components';
 
 export const Root = styled.div`
@@ -21,7 +21,7 @@ export const StyledSwitchWrapper = styled.div`
 `;
 
 export const StyledSeparator = styled(Separator)`
-  background-color: var(--accent-a11);
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 export const StyledSwitch = styled(Switch)`
@@ -29,6 +29,17 @@ export const StyledSwitch = styled(Switch)`
     props.theme.colors.bg !== 'whitesmoke' &&
     css`
       border: solid 1px;
-      border-color: var(--accent-a11);
+      border-color: ${(props) => props.theme.colors.primary};
+    `}
+`;
+
+export const StyledCheckbox = styled(Checkbox)<{ checked: boolean }>`
+  ${({ checked }) =>
+    checked &&
+    css`
+      button {
+        background-color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.bg};
+      }
     `}
 `;

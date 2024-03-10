@@ -5,7 +5,7 @@ import { useTheme } from 'styled-components';
 import { usePersistColorModeStore } from 'store';
 import { usePersistUserConsentStore } from 'store/usePersistUserConsentStore';
 
-import { Root, StyledSeparator, StyledSwitch, StyledSwitchWrapper } from './Toggles.styles';
+import { Root, StyledCheckbox, StyledSeparator, StyledSwitch, StyledSwitchWrapper } from './Toggles.styles';
 
 export const Toggles: React.FC = () => {
   const onCheck = () => {
@@ -26,16 +26,15 @@ export const Toggles: React.FC = () => {
   return (
     <Root>
       Override theme
-      <Checkbox
+      <StyledCheckbox
         checked={shouldOverride}
-        color='amber'
         onClick={onCheck}
       />
       <StyledSwitchWrapper>
         <MoonIcon />
         <StyledSwitch
           checked={colorModesBoolean[colorModeString]}
-          color='amber'
+          color='brown'
           disabled={!shouldOverride}
           highContrast={isDarkTheme}
           variant='classic'
@@ -53,7 +52,7 @@ export const Toggles: React.FC = () => {
         <Cross2Icon />
         <StyledSwitch
           checked={userConsent}
-          color='amber'
+          color='brown'
           highContrast={isDarkTheme}
           variant='classic'
           onClick={() => toggleUserConsent()}

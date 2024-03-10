@@ -35,5 +35,3 @@ export const parseContext = (data: string) =>
 
 export const getOSPreference = (): ColorMode =>
   window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-// TODO: getColorMode(), like const isDarkTheme = theme.colors.bg !== 'whitesmoke'; in toggles.tsx

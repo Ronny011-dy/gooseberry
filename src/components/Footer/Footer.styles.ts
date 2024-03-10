@@ -20,6 +20,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledButton = styled(Button)`
+  color: ${(props) => props.theme.colors.primary};
   &:hover {
     cursor: pointer;
   }

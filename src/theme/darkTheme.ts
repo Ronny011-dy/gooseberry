@@ -6,6 +6,7 @@ export const darkTheme: ThemeMode = {
     bga: 'rgba(30, 30, 30, 0.2)',
     fg: 'whitesmoke',
     fga: 'rgba(245, 245, 245, 0.5)',
-    primary: 'rgba(158,108,0,255)'
+    header: 'rgb(15, 15, 15)',
+    primary: 'rgb(252, 185, 0)'
   }
 };

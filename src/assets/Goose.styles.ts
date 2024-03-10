@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledBug = styled.svg`
-  height: 15px;
-  width: 15px;
+export const StyledGoose = styled.svg`
   fill: ${(props) => props.theme.colors.primary};
+  height: 3vh;
+  width: 3vh;
 `;

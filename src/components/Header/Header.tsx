@@ -1,14 +1,11 @@
 import { useMemo } from 'react';
-import { useTheme } from 'styled-components';
 
 import { usePersistDyDefaultsStore } from 'store';
-
-import gooseLogo from '/gooseberry.svg';
-import gooseLogoLight from '/gooseberry_light.svg';
+import { Goose } from 'assets/Goose';
 
 import {
   Root,
-  StyledBadge,
+  StyledConsentBadge,
   StyledButton,
   StyledLogoLink,
   StyledLogoWrapper,
@@ -19,7 +16,6 @@ import {
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
-  const theme = useTheme();
   const { scriptId } = usePersistDyDefaultsStore();
   const pages = ['category', 'product', 'cart', 'settings'];
   const toCapitalized = (title: string) => `${title[0].toUpperCase()}${title.slice(1)}`;
@@ -32,28 +28,28 @@ const Header: React.FC<HeaderProps> = () => {
         target='_self'
         to='/'
       >
-        <StyledLogoWrapper variant='outline'>
-          <img src={theme.colors.bg === 'whitesmoke' ? gooseLogoLight : gooseLogo} />
+        <StyledLogoWrapper>
+          <Goose />
         </StyledLogoWrapper>
         <h1>Gooseberry</h1>
       </StyledLogoLink>
       <StyledNavigation>
         {pages.map((page, index) => (
-          <StyledButton
+          <StyledNavigationLink
             key={index}
-            variant='outline'
+            to={`/${page}`}
           >
-            <StyledNavigationLink to={`/${page}`}>{toCapitalized(page)}</StyledNavigationLink>
-          </StyledButton>
+            <StyledButton variant='outline'>{toCapitalized(page)}</StyledButton>
+          </StyledNavigationLink>
         ))}
       </StyledNavigation>
       {activeConsent && (
-        <StyledBadge
+        <StyledConsentBadge
           color='green'
           variant='solid'
         >
           Script with Active Consent
-        </StyledBadge>
+        </StyledConsentBadge>
       )}
     </Root>
   );

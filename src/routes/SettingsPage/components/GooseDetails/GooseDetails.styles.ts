@@ -29,8 +29,6 @@ export const StyledReactLink = styled.a`
   font-weight: bold;
   transition: filter 300ms;
   &:hover {
-    filter: drop-shadow(
-      0 0 1em ${(props) => props.theme.constantColors.secondary}
-    );
+    filter: drop-shadow(0 0 1em ${(props) => props.theme.constantColors.secondary});
   }
 `;
