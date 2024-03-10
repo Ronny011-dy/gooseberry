@@ -1,5 +1,5 @@
 import { Tooltip } from '@radix-ui/themes';
-import { ChangeEvent, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
 import { usePersistDyDefaultsStore } from 'store';
@@ -17,9 +17,6 @@ export const RecommendationContextChanger: React.FC<Props> = ({ type }) => {
   const { lng } = usePersistDyDefaultsStore();
   const [contextData, setContextData] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setContextData(e.target.value);
-  };
 
   const onClick = () => {
     contextData && setDYContext(type, [contextData], lng);
@@ -27,21 +24,13 @@ export const RecommendationContextChanger: React.FC<Props> = ({ type }) => {
     setContextData('');
   };
 
-  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      onClick();
-      inputRef.current?.blur();
-    }
-  };
-
   const inputWithButtonParams: InputWithButtonProps = {
     buttonCallback: onClick,
     buttonLabel: 'Change',
     inputRef,
-    onChange,
-    onKeyDown,
+    inputValue: contextData,
     placeholder: 'Enter context data',
+    setInputValue: setContextData,
     value: contextData
   };
 

@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { setDYContext, eventAddToCart } from 'utils';
 import { usePersistDyDefaultsStore } from 'store';
@@ -27,29 +27,17 @@ export const CartPage: React.FC = () => {
 
   const productCartProps = { addProduct, cartData, setCartData };
 
-  const onSkuInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSkuToAdd(e.target.value);
-  };
-
   const onAddToCart = () => {
     skuToAdd && addProduct(skuToAdd);
-    setSkuToAdd('');
-  };
-
-  const onSkuInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      onAddToCart();
-    }
   };
 
   const inputWithButtonParams: InputWithButtonProps = {
     buttonCallback: onAddToCart,
     buttonLabel: 'Add to cart',
     inputRef: skuInputRef,
-    onChange: onSkuInputChange,
-    onKeyDown: onSkuInputKeyDown,
+    inputValue: skuToAdd,
     placeholder: 'SKU',
+    setInputValue: setSkuToAdd,
     value: skuToAdd
   };
 

@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
 import { appendScript } from 'utils';
@@ -16,51 +16,33 @@ export type DyDefaultsChangerProps = {
 
 export const DyDefaultsChanger: React.FC<DyDefaultsChangerProps> = ({ defaultValue, setDefaultValue, placeholder }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [value, setInputValue] = useState('');
-  const isContextOrSelector = placeholder !== 'section id';
+  const [inputValue, setInputValue] = useState('');
 
   const onScriptSave = () => {
     const scriptValidity = inputRef.current && inputRef.current.reportValidity();
     if (scriptValidity) {
-      appendScript(value);
-      setDefaultValue(value);
+      appendScript(inputValue);
+      setDefaultValue(inputValue);
       location.reload();
     }
   };
 
   const onContextAndSelectorSave = () => {
-    setDefaultValue(value);
+    setDefaultValue(inputValue);
     toast.success('Context changed successfully');
   };
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
   const buttonCallback = () => {
-    if (placeholder === 'section id') {
-      onScriptSave();
-    } else {
-      onContextAndSelectorSave();
-    }
-  };
-
-  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      buttonCallback();
-      isContextOrSelector && inputRef.current?.blur(); //this will onfocus validity report as well
-    }
+    placeholder === 'section id' ? onScriptSave() : onContextAndSelectorSave();
   };
 
   const inputWithButtonParams: InputWithButtonProps = {
     buttonCallback,
     buttonLabel: 'Save',
     inputRef,
-    onChange,
-    onKeyDown,
+    inputValue,
     placeholder: `Enter ${placeholder}`,
-    value
+    setInputValue
   };
 
   if (placeholder === 'section id') inputWithButtonParams['pattern'] = '^[89][0-9]{6}$';

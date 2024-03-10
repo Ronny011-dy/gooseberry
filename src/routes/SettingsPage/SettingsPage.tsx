@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { ResetIcon } from '@radix-ui/react-icons';
 import { Tooltip } from '@radix-ui/themes';
-import toast from 'react-hot-toast';
 
 import { setDYContext } from 'utils';
 import { SitePage } from 'components/SitePage';
@@ -31,7 +30,7 @@ export const SettingsPage: React.FC = () => {
     setProductContext('3853');
     setSelector('api-rec');
     setLng('en_US');
-    toast.success('Values reset to default');
+    location.reload();
   };
 
   const settingsArr: DyDefaultsChangerProps[] = [

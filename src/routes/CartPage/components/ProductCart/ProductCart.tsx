@@ -31,7 +31,7 @@ export const ProductCart: React.FC<Props> = ({ cartData, setCartData, addProduct
 
   const handlePurchase = () => {
     eventPurchase(cartData);
-    toast.success('Purcahse fired');
+    toast.success('Purchase fired');
   };
 
   return (
