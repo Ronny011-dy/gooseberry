@@ -11,20 +11,23 @@ import { Footer } from 'components/Footer';
 import { SiteRoutes } from './routes';
 import { GlobalStyle, Root } from './App.styles';
 import { appendScript, getOSPreference } from './utils';
-import { usePersistColorModeStore, usePersistDyDefaultsStore } from './store';
-import { DY } from './types';
+import { usePersistColorModeStore, usePersistDyDefaultsStore, usePersistUserConsentStore } from './store';
+import type { DY, DYO } from './types';
 
 declare global {
   interface Window {
     DY: DY;
+    DYO: DYO;
   }
 }
 
 export const App = () => {
   const { scriptId } = usePersistDyDefaultsStore();
+  const { userConsent } = usePersistUserConsentStore();
   useEffect(() => {
-    appendScript(scriptId, true);
-  }, []);
+    appendScript(scriptId, userConsent);
+  }, [userConsent]);
+
   const queryClient = new QueryClient();
   const { colorModeString, shouldOverride } = usePersistColorModeStore();
   const getAppearance = shouldOverride ? colorModeString : getOSPreference();

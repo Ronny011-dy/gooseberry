@@ -10,7 +10,7 @@ import { CampaignSlot } from 'components/CampaignSlot';
 
 import { StyledButton, StyledTitle } from './SettingsPage.styles';
 import { GooseDetails } from './components/GooseDetails';
-import { ChangeColorMode } from './components/ChangeColorMode';
+import { Toggles } from './components/Toggles';
 import { Redirects } from './components/Redirects/Redirects';
 import { DyDefaultsChangerProps } from './components/DyDefaultsChanger/DyDefaultsChanger';
 import { DyDefaultsChangerList } from './components/DyDefaultsChangerList/DyDefaultsChangerList';
@@ -61,7 +61,7 @@ export const SettingsPage: React.FC = () => {
       </StyledTitle>
       <Redirects scriptId={scriptId} />
       <DyDefaultsChangerList settingsArr={settingsArr} />
-      <ChangeColorMode />
+      <Toggles />
       <CampaignSlot
         className='dy campaign other'
         id='other-campaign'

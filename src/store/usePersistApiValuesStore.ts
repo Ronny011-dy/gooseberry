@@ -22,7 +22,7 @@ export const usePersistApiValuesStore = create<State & Actions>()(
       setSelector: (selector) => set(() => ({ selector }))
     }),
     {
-      name: 'experience-api-values'
+      name: 'experience-api-storage'
     }
   )
 );

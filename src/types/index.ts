@@ -1,1 +1,1 @@
-export type { PageContext, DY, ChooseResponse } from './types';
+export type { PageContext, DY, DYO, ChooseResponse } from './types';

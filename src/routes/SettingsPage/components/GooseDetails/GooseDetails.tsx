@@ -6,7 +6,7 @@ export const GooseDetails: React.FC = () => {
   return (
     <Root>
       <StyledLogo
-        href='https://ronny011-dy.github.io/gooseberry/'
+        href='https://github.com/DynamicYield/gooseberry'
         target='_blank'
       >
         <img

@@ -1,12 +1,12 @@
 import { Button } from '@radix-ui/themes';
-import { FC, InputHTMLAttributes } from 'react';
+import type { ElementRef, FC, InputHTMLAttributes, RefObject } from 'react';
 
 import { Root, StyledInput } from './InputWithButton.styles';
 
 export type InputWithButtonProps = Partial<InputHTMLAttributes<HTMLInputElement>> & {
   buttonCallback: () => void;
   buttonLabel: string;
-  inputRef: React.RefObject<HTMLInputElement>;
+  inputRef: RefObject<ElementRef<'input'>>;
 };
 
 export const InputWithButton: FC<InputWithButtonProps> = ({

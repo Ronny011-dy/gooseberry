@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Button } from '@radix-ui/themes';
 import { Link } from 'react-router-dom';
 

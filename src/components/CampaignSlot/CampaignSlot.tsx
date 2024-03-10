@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Root } from './CampaignSlot.styles';
 
@@ -21,8 +21,8 @@ export const CampaignSlot: React.FC<Props> = ({
     <>
       <h4>{title}</h4>
       <Root
+        $bottomMargin={bottomMargin}
         $children={children}
-        bottomMargin={bottomMargin}
         className={`dy campaign ${className}`}
         id={id}
       >

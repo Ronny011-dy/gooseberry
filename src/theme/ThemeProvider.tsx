@@ -1,7 +1,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { ColorMode, usePersistColorModeStore } from 'store';
+import { type ColorMode, usePersistColorModeStore } from 'store';
 import { getOSPreference } from 'utils';
 
 import { lightTheme } from './lightTheme';

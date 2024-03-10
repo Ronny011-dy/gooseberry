@@ -1,1 +1,0 @@
-export { ChangeColorMode } from './ChangeColorMode';

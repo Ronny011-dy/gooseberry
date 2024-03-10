@@ -1,7 +1,12 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-export const Root = styled.div<{ $children: ReactNode; bottomMargin: boolean }>`
+interface Props {
+  $bottomMargin: boolean;
+  $children: ReactNode;
+}
+
+export const Root = styled.div<Props>`
   ${({ $children }) =>
     !$children &&
     css`
@@ -10,8 +15,8 @@ export const Root = styled.div<{ $children: ReactNode; bottomMargin: boolean }>`
       background-color: gray;
       min-height: 50px;
     `}
-  ${({ bottomMargin }) =>
-    bottomMargin &&
+  ${({ $bottomMargin }) =>
+    $bottomMargin &&
     css`
       margin-bottom: 15px;
     `}

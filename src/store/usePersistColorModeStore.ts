@@ -16,15 +16,15 @@ type Actions = {
 
 export const usePersistColorModeStore = create<State & Actions>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       colorModesBoolean: {
         dark: false,
         light: true
       },
       colorModeString: 'dark',
       shouldOverride: false,
-      toggleColorMode: () => set({ colorModeString: get().colorModeString === 'dark' ? 'light' : 'dark' }),
-      toggleShouldOverride: () => set({ shouldOverride: !get().shouldOverride })
+      toggleColorMode: () => set((prev) => ({ colorModeString: prev.colorModeString === 'dark' ? 'light' : 'dark' })),
+      toggleShouldOverride: () => set((prev) => ({ shouldOverride: !prev.shouldOverride }))
     }),
     {
       name: 'color-mode-storage'

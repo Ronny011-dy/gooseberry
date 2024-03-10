@@ -1,4 +1,4 @@
-import { ThemeMode } from './ThemeProvider';
+import type { ThemeMode } from './ThemeProvider';
 
 export const darkTheme: ThemeMode = {
   colors: {

@@ -16,6 +16,11 @@ export type DY = {
   userActiveConsent: UserActiveConsent;
 };
 
+export type DYO = {
+  ActiveConsent: { updateConsentAcceptedStatus: (status: boolean) => void };
+  sectionFeatures: { ACTIVE_CONSENT: { enabled: boolean; value: null } };
+};
+
 type Variation = { payload: { data: { custom: { title: string }; slots: [] } } };
 
 type Choice = { variations: Variation[] };

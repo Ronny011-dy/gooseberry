@@ -1,9 +1,8 @@
-import { Button } from '@radix-ui/themes';
+import { Badge, Button } from '@radix-ui/themes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Root = styled.header`
-  container-type: inline-size;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -44,6 +43,7 @@ export const StyledLogoLink = styled(Link)`
 export const StyledNavigation = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 1vw;
   justify-content: center;
   align-items: center;
 `;
@@ -51,9 +51,16 @@ export const StyledNavigation = styled.div`
 export const StyledButton = styled(Button)`
   color: ${(props) => props.theme.constantColors.black};
   font-weight: bold;
-  padding: 0 12px 0 12px;
-  min-width: 6.5cqi;
-  @container (width < 1010px) {
-    padding: 0 5px 0 5px;
+  &:hover {
+    cursor: pointer;
   }
+`;
+
+export const StyledNavigationLink = styled(Link)`
+  all: unset;
+`;
+
+export const StyledBadge = styled(Badge)`
+  width: fit-content;
+  margin: auto;
 `;
